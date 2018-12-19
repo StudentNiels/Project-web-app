@@ -84,7 +84,7 @@ CREATE TABLE `VideoLijst` (
 	VideoID INT,
 	AbonnementID INT,
 	DocentID INT,
-	StudentEmail VARCHAR(45)
+	StudentEmail VARCHAR(45),
 	Vak VARCHAR(13) NOT NULL,
 	Opleiding VARCHAR(15) NOT NULL,
 	CONSTRAINT fk_docentkanaal_videolijst
