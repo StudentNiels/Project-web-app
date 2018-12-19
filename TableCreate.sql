@@ -59,3 +59,51 @@ CREATE TABLE `Video` (
 		REFERENCES School(SchoolID)
 );
 
+CREATE TABLE `DocentKanaal` (
+	KanaalNaam VARCHAR(20),
+	SchoolID INT,
+	VideoID INT,
+	DocentID INT,
+	Vak VARCHAR(13) NOT NULL,
+	Opleiding VARCHAR(15) NOT NULL,
+	CONSTRAINT pk_docentkanaal
+		PRIMARY KEY(KanaalNaam),
+	CONSTRAINT fk_school_docentkanaal
+		FOREIGN KEY(SchoolID)
+		REFERENCES School(SchoolID),
+	CONSTRAINT fk_video_docentkanaal
+		FOREIGN KEY(VideoID)
+		REFERENCES Video(VideoID),
+	CONSTRAINT fk_docent_docentkanaal
+		FOREIGN KEY(DocentID)
+		REFERENCES Docent(DocentID)
+);
+
+CREATE TABLE `VideoLijst` (
+	KanaalNaam VARCHAR(20),
+	SchoolID INT,
+	VideoID INT,
+	AbonnementID INT,
+	DocentID INT,
+	StudentEmail VARCHAR(45)
+	Vak VARCHAR(13) NOT NULL,
+	Opleiding VARCHAR(15) NOT NULL,
+	CONSTRAINT fk_docentkanaal_videolijst
+		FOREIGN KEY(KanaalNaam)
+		REFERENCES DocentKanaal(KanaalNaam),
+	CONSTRAINT fk_school_videolijst
+		FOREIGN KEY(SchoolID)
+		REFERENCES School(SchoolID),
+	CONSTRAINT fk_video_videolijst
+		FOREIGN KEY(VideoID)
+		REFERENCES Video(VideoID),
+	CONSTRAINT fk_abonnement_videolijst
+		FOREIGN KEY(AbonnementID)
+		REFERENCES Abonnement(AbonnementID),
+	CONSTRAINT fk_docent_videolijst
+		FOREIGN KEY(DocentID)
+		REFERENCES Docent(DocentID),
+	CONSTRAINT fk_hbostudent_videolijst
+		FOREIGN KEY(StudentEmail)
+		REFERENCES HboStudent(StudentEmail)
+);
