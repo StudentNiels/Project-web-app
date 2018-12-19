@@ -16,7 +16,6 @@ CREATE TABLE `HboStudent` (
 	StudentEmail VARCHAR(45),
 	SchoolID INT,
 	AbonnementID INT,
-	Opleiding VARCHAR(15) NOT NULL,
 	Wachtwoord VARCHAR(255) NOT NULL,
 	CONSTRAINT pk_hbostudent
 		PRIMARY KEY(StudentEmail),
@@ -84,7 +83,7 @@ CREATE TABLE `VideoLijst` (
 	VideoID INT,
 	AbonnementID INT,
 	DocentID INT,
-	StudentEmail VARCHAR(45)
+	StudentEmail VARCHAR(45),
 	Vak VARCHAR(13) NOT NULL,
 	Opleiding VARCHAR(15) NOT NULL,
 	CONSTRAINT fk_docentkanaal_videolijst
