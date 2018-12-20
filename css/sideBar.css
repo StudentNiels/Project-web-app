@@ -122,3 +122,7 @@
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+#logo{
+    width: 100%;
+    height: auto;
+}
