@@ -36,7 +36,7 @@
           $username = $_POST["login_username"];
           $postpw = $_POST['login_password'];
 
-          $SQLstring = 'SELECT wachtwoord FROM ' . $TableName . ' WHERE StudentEmail = ?';
+          $SQLstring = 'SELECT Wachtwoord FROM ' . $TableName . ' WHERE StudentEmail = ?';
           if ($stmt = mysqli_prepare($conn, $SQLstring)) {
             mysqli_stmt_bind_param($stmt, 's', $username);
             mysqli_stmt_execute($stmt);
