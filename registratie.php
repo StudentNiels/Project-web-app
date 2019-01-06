@@ -14,7 +14,7 @@
     </p>
     <p>
       <?php
-      $TableName2 = 'school';
+      $TableName2 = 'School';
       $SQLstring = "SELECT SchoolId, SchoolNaam FROM " . $TableName2;
       if ($stmt = mysqli_prepare($conn, $SQLstring)) {
         mysqli_stmt_execute($stmt);
