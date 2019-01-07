@@ -1,5 +1,5 @@
 <?php
-$db_name = "learnflix";
+$db_name = "ilearnflix";
 //assign the connection and selected database to a variable
 $conn = mysqli_connect("localhost", "root", "");
 if ($conn === FALSE)
