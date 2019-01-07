@@ -122,7 +122,18 @@
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
+.logobg{
+    background-color: #333;
+}
 #logo{
-    width: 100%;
-    height: auto;
+    margin: 10px;   
+    background-color: #333;
+}
+.sicons{
+    position: relative;
+    bottom: 0px;
+    padding: 0px;
+    margin: 5px;
+    height: 20px;
+    width: auto;
 }
