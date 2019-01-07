@@ -12,7 +12,7 @@
 <body>
   <div class='container'>
       <h5> login </h5>
-      <form method="post" action='login.php'>
+      <form method="post" action='index.php'>
         <p>
           <input type='text' name='login_username' placeholder="username">
         </p>

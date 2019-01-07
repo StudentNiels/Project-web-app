@@ -1,4 +1,5 @@
 <?php
+/*
 $string = 'ABC Hogeschool
 ,Academie Artemis Hogeschool voor Styling
 ,Academie voor Wetgeving
@@ -108,3 +109,4 @@ if(  $stmt = mysqli_prepare($conn, $query)){
   }
 }
  ?>
+*/
