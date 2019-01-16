@@ -1,3 +1,8 @@
+body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
 #sidebar {
     overflow: hidden;
     z-index: 3;
@@ -101,6 +106,13 @@
     #sidebar .list-group > .list-group-item[aria-expanded="false"]::after {
         display:none;
     }
+    #logo{
+    margin: 0px;   
+    background-color: #333;
+    }
+     .sicons{
+    margin-left: 0px;
+    }
 }
 
 .collapse.show {
@@ -124,16 +136,34 @@
 }
 .logobg{
     background-color: #333;
+    height: 100%;
 }
-#logo{
+.socialbar{
+    position: fixed;
+    bottom: 0px;
+}
+@media (min-width: 768px){
+    #logo{
     margin: 10px;   
     background-color: #333;
+    }
+    .sicons{
+    margin-left: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    }
 }
-.sicons{
-    position: relative;
-    bottom: 0px;
-    padding: 0px;
-    margin: 5px;
-    height: 20px;
-    width: auto;
+@media (min-width: 992px){
+    .sicons{
+    margin-left: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+    }
+}
+@media (min-width: 1500px){
+    .sicons{
+    margin-left: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    }
 }
