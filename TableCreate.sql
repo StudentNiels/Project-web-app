@@ -55,7 +55,7 @@ CREATE TABLE `DocentKanaal` (
 		REFERENCES School(SchoolID),
 	CONSTRAINT fk_video_docentkanaal
 		FOREIGN KEY(VideoID)
-		REFERENCES Video(VideoID),
+		REFERENCES Video(VideoID)
 );
 
 CREATE TABLE `VideoLijst` (
