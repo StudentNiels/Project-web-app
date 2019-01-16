@@ -20,7 +20,7 @@
 		   <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
 		  
 		  </div>
-              <div class="text-center col-sm-2 col-md-4 col-lg-6 mx-auto">
+              <div class="text-center col-6 mx-auto">
                     
               
 

@@ -13,7 +13,7 @@
 		  
 		  </div>
 		  <hr>
-              <div class="text-center col-sm-6 col-md-6 col-lg-6 mx-auto">
+              <div class="text-center col-6 mx-auto">
     <?php
     include('conn.php');
 
