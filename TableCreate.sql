@@ -18,7 +18,8 @@ CREATE TABLE `User` (
 	SchoolID INT,
 	AbonnementID INT,
 	Wachtwoord VARCHAR(255) NOT NULL,
-	DocentPerms TINYINT(1),
+	DocentPerms TINYINT(1) DEFAULT '0'
+,
 	CONSTRAINT pk_user
 		PRIMARY KEY(userID),
 	CONSTRAINT fk_school_user
