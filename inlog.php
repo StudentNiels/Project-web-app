@@ -8,21 +8,40 @@
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link type="text/css" rel="stylesheet" href="css/index.css"  />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="styletest.css" rel="stylesheet">
 </head>
 <body>
-  <div class='container'>
-    <h5> login </h5>
-    <form method="post">
-      <p>
-        <input type='text' name='login_username' placeholder="email">
-      </p>
-      <p>
-        <input type='password' name='login_password' placeholder="password">
-      </p>
-      <p>
-        <input type='submit' value='verzenden' name='login_submit' class="">
-      </p>
-    </form>
+  <div class="background">
+  <div class="container">
+      <div class="row justify-content-center">      
+          <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
+		  <div class="pic-center">
+		   <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
+		  
+		  </div>
+              <div class="text-center col-sm-2 col-md-4 col-lg-6 mx-auto">
+                    
+              
+
+      <h5> login </h5>
+      <form method="post" action='index.php'>
+        <p>
+		 <div class="form-group">
+          <input class="form-control" type='text' name='login_username' placeholder="username">
+        </div>
+		</p>
+        <p>
+		 <div class="form-group">
+          <input class="form-control" type='password' name='login_password' placeholder="password">
+        </div>
+		</p>
+        <p>
+		 <div class="form-group">
+          <input class="form-control" type='submit' value='Login' name='login_submit' class="">
+        </div>
+		</p>
+      </form>
 
     <?php
     include('conn.php');
@@ -67,6 +86,10 @@
       }
     }
     ?>
+  </div>
+          </div>
+        
+      </div>
   </div>
 </div>
 </body>

@@ -38,13 +38,18 @@
     <h3> register </h3>
     <form method="post">
       <p>
-        <input type='email' name='reg_email' placeholder="email">
-      </p>
+	  <div class="form-group">
+        <input class="form-control" type='email' name='reg_email' placeholder="email">
+      </div>
+	  </p>
       <p>
-        <input type='password' name='reg_password' placeholder="password">
-      </p>
+	  <div class="form-group">
+        <input class="form-control" type='password' name='reg_password' placeholder="password">
+      </div>
+	  </p>
 
       <p>
+	  <div class="form-group">
         <?php
         $TableName2 = 'School';
         $SQLstring = "SELECT SchoolId, SchoolNaam FROM " . $TableName2;
@@ -55,7 +60,7 @@
             mysqli_stmt_bind_result($stmt1, $sId, $sNaam);
 
             if (mysqli_stmt_num_rows($stmt1) > 0) {
-              echo '<select name="school">
+              echo '<select class="form-control" name="school">
               ';
               while (mysqli_stmt_fetch($stmt1)) {
                 echo '<option value="' . $sId . '">' . $sNaam . '</option>';
@@ -69,6 +74,7 @@
           echo 'query ging fout!';
         }
         ?>
+		</div>
       </p>
       <p>
         <input type='submit' value='verzenden' name='reg_submit' class='btn'>
