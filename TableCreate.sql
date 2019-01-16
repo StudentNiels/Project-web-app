@@ -12,37 +12,25 @@ CREATE TABLE `Abonnement` (
 		PRIMARY KEY(AbonnementID)
 );
 
-CREATE TABLE `HboStudent` (
-	StudentEmail VARCHAR(45),
+CREATE TABLE `User` (
+	Email VARCHAR(45),
 	SchoolID INT,
 	AbonnementID INT,
 	Wachtwoord VARCHAR(255) NOT NULL,
-	CONSTRAINT pk_hbostudent
-		PRIMARY KEY(StudentEmail),
-	CONSTRAINT fk_school_hbostudent
+	DocentPerms TINYINT(1),
+	CONSTRAINT pk_user
+		PRIMARY KEY(Email),
+	CONSTRAINT fk_school_user
 		FOREIGN KEY(SchoolID)
 		REFERENCES School(SchoolID)
 		ON DELETE CASCADE,
-	CONSTRAINT fk_abonnement_hbostudent
+	CONSTRAINT fk_abonnement_user
 		FOREIGN KEY(AbonnementID)
 		REFERENCES Abonnement(AbonnementID)
 );
 
-CREATE TABLE `Docent` (
-	DocentID INT AUTO_INCREMENT,
-	SchoolID INT,
-	Vak VARCHAR(13) NOT NULL,
-	DocentEmail VARCHAR(45) NOT NULL UNIQUE,
-	CONSTRAINT pk_docent
-		PRIMARY KEY(DocentID),
-	CONSTRAINT fk_school_docent
-		FOREIGN KEY(SchoolID)
-		REFERENCES School(SchoolID)
-);
-
 CREATE TABLE `Video` (
 	VideoID INT AUTO_INCREMENT,
-	DocentID INT,
 	SchoolID INT,
 	Titel VARCHAR(50) NOT NULL UNIQUE,
 	Locatie VARCHAR(100) NOT NULL,
@@ -62,7 +50,6 @@ CREATE TABLE `DocentKanaal` (
 	KanaalNaam VARCHAR(20),
 	SchoolID INT,
 	VideoID INT,
-	DocentID INT,
 	Vak VARCHAR(13) NOT NULL,
 	Opleiding VARCHAR(15) NOT NULL,
 	CONSTRAINT pk_docentkanaal
@@ -84,7 +71,7 @@ CREATE TABLE `VideoLijst` (
 	VideoID INT,
 	AbonnementID INT,
 	DocentID INT,
-	StudentEmail VARCHAR(45),
+	Email VARCHAR(45),
 	Vak VARCHAR(13) NOT NULL,
 	Opleiding VARCHAR(15) NOT NULL,
 	CONSTRAINT fk_docentkanaal_videolijst
