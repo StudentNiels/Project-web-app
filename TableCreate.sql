@@ -37,10 +37,6 @@ CREATE TABLE `Video` (
 	Vak VARCHAR(13) NOT NULL,
 	CONSTRAINT pk_video
 		PRIMARY KEY(VideoID),
-	CONSTRAINT fk_docent_video
-		FOREIGN KEY(DocentID)
-		REFERENCES Docent(DocentID)
-		ON DELETE CASCADE,
 	CONSTRAINT fk_school_video
 		FOREIGN KEY(SchoolID)
 		REFERENCES School(SchoolID)
@@ -60,9 +56,6 @@ CREATE TABLE `DocentKanaal` (
 	CONSTRAINT fk_video_docentkanaal
 		FOREIGN KEY(VideoID)
 		REFERENCES Video(VideoID),
-	CONSTRAINT fk_docent_docentkanaal
-		FOREIGN KEY(DocentID)
-		REFERENCES Docent(DocentID)
 );
 
 CREATE TABLE `VideoLijst` (
@@ -70,7 +63,6 @@ CREATE TABLE `VideoLijst` (
 	SchoolID INT,
 	VideoID INT,
 	AbonnementID INT,
-	DocentID INT,
 	Email VARCHAR(45),
 	Vak VARCHAR(13) NOT NULL,
 	Opleiding VARCHAR(15) NOT NULL,
@@ -86,10 +78,7 @@ CREATE TABLE `VideoLijst` (
 	CONSTRAINT fk_abonnement_videolijst
 		FOREIGN KEY(AbonnementID)
 		REFERENCES Abonnement(AbonnementID),
-	CONSTRAINT fk_docent_videolijst
-		FOREIGN KEY(DocentID)
-		REFERENCES Docent(DocentID),
-	CONSTRAINT fk_hbostudent_videolijst
-		FOREIGN KEY(StudentEmail)
-		REFERENCES HboStudent(StudentEmail)
+	CONSTRAINT fk_user_videolijst
+		FOREIGN KEY(Email)
+		REFERENCES User(Email)
 );
