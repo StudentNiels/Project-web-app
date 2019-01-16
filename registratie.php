@@ -9,19 +9,19 @@
 
     if(isset($_POST['reg_submit'])){
       if(!empty($_POST['school']) && !empty($_POST['reg_password']) && !empty($_POST['reg_email'])){
-        $Tn = 'HboStudent';
-        $SQLstring2 = "SELECT StudentEmail FROM " . $Tn . " WHERE StudentEmail = '" . $_POST['reg_email'] . "'";
+        $Tn = 'user';
+        $SQLstring2 = "SELECT Email FROM " . $Tn . " WHERE Email = '" . $_POST['reg_email'] . "'";
         if ($stmt3 = mysqli_prepare($conn, $SQLstring2)) {
           mysqli_stmt_execute($stmt3);
           mysqli_stmt_store_result($stmt3);
           if (mysqli_stmt_num_rows($stmt3) == 0) {
-            $TableName = 'hboStudent';
-            $query = "INSERT INTO " . $TableName . " (StudentEmail, SchoolId, Wachtwoord) VALUES ( ?, ?, ?)";
+            $TableName = 'user';
+            $query = "INSERT INTO " . $TableName . " (Email, SchoolId, Wachtwoord, DocentPerms) VALUES ( ?, ?, ?, 0)";
             if($stmt = mysqli_prepare($conn, $query)){
               $pwhash = password_hash($_POST['reg_password'], PASSWORD_DEFAULT);
               mysqli_stmt_bind_param($stmt, 'sss', $_POST['reg_email'], $_POST['school'], $pwhash);
               mysqli_stmt_execute($stmt);
-              header("Location: index.php");
+              header("Location: login.php");
             } else {
               echo "<br>Error: " . $query . "<br>" . mysqli_error($conn);
             }
@@ -43,6 +43,7 @@
       <p>
         <input type='password' name='reg_password' placeholder="password">
       </p>
+
       <p>
         <?php
         $TableName2 = 'School';

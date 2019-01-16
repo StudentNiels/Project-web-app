@@ -11,58 +11,62 @@
 </head>
 <body>
   <div class='container'>
-      <h5> login </h5>
-      <form method="post" action='index.php'>
-        <p>
-          <input type='text' name='login_username' placeholder="username">
-        </p>
-        <p>
-          <input type='password' name='login_password' placeholder="password">
-        </p>
-        <p>
-          <input type='submit' value='verzenden' name='login_submit' class="">
-        </p>
-      </form>
+    <h5> login </h5>
+    <form method="post">
+      <p>
+        <input type='text' name='login_username' placeholder="email">
+      </p>
+      <p>
+        <input type='password' name='login_password' placeholder="password">
+      </p>
+      <p>
+        <input type='submit' value='verzenden' name='login_submit' class="">
+      </p>
+    </form>
 
-      <?php
-      include('conn.php');
-      if(isset($_GET['reg'])){
-        echo 'registratie succesvol';
-      }
+    <?php
+    include('conn.php');
+    if(isset($_GET['reg'])){
+      echo 'registratie succesvol';
+    }
 
-      if(isset($_POST['login_submit'])){
-        if(!empty($_POST['login_username']) && !empty($_POST['login_password'])){
-          $TableName = 'hboStudent';
-          $username = $_POST["login_username"];
-          $postpw = $_POST['login_password'];
+    if(isset($_POST['login_submit'])){
+      if(!empty($_POST['login_username']) && !empty($_POST['login_password'])){
+        $TableName = 'user';
+        $username = $_POST["login_username"];
+        $postpw = $_POST['login_password'];
 
-          $SQLstring = 'SELECT Wachtwoord FROM ' . $TableName . ' WHERE StudentEmail = ?';
-          if ($stmt = mysqli_prepare($conn, $SQLstring)) {
-            mysqli_stmt_bind_param($stmt, 's', $username);
-            mysqli_stmt_execute($stmt);
-            mysqli_stmt_bind_result($stmt, $hash);
-            mysqli_stmt_store_result($stmt);
-            mysqli_stmt_fetch($stmt);
-            if (mysqli_stmt_num_rows($stmt) > 0) {
-              if(password_verify($postpw,$hash)){
-                session_start();
-                $_SESSION['loggedin'] = true;
-                $_SESSION['username'] = $username;
-                header("Location: index.php");
-              }else{
-                print_r($postpw);
-              }
+        $SQLstring = 'SELECT userId, Wachtwoord FROM ' . $TableName . ' WHERE Email = ?';
+        if ($stmt = mysqli_prepare($conn, $SQLstring)) {
+          mysqli_stmt_bind_param($stmt, 's', $username);
+          mysqli_stmt_execute($stmt);
+          mysqli_stmt_bind_result($stmt, $userId, $hash);
+          mysqli_stmt_store_result($stmt);
+          mysqli_stmt_fetch($stmt);
+          if (mysqli_stmt_num_rows($stmt) > 0) {
+            if(password_verify($postpw,$hash)){
+              session_start();
+              $_SESSION['loggedin'] = true;
+              $_SESSION['username'] = $username;
+              $_SESSION['docent'] = 'test';
+              $_SESSION['userId'] = $$userId;
+              header("Location: index.php");
             }else{
-              echo 'how is eem';
+              print_r($postpw);
             }
           }else{
-            printf('query gaat fout');
+            echo 'how is eem';
           }
-          mysqli_stmt_close($stmt);
-          mysqli_close($conn);
+        }else{
+          printf('query gaat fout');
         }
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+      }else{
+        echo 'vul alle velden in';
       }
-      ?>
-    </div>
+    }
+    ?>
   </div>
+</div>
 </body>

@@ -15,6 +15,13 @@
     <title>I Learn Flix</title>
 </head>
 
+<?php
+session_start();
+  if($_SESSION['docent'] == 'test'){
+    echo 'is gezet a mattie ';
+  }
+  print_r($_SESSION);
+ ?>
 <body>
 <div class="container-fluid">
     <div class="row d-flex d-md-block flex-nowrap wrapper">
