@@ -34,6 +34,5 @@ include('conn.php');
       <input type='file' name='file' />
       <input type='submit' value='Upload' name='but_upload'>
     </form>
-	<p><a href="readvideo.php">Voorgaande Uploads.</a></p>
   </body>
 </html>
