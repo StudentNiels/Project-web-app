@@ -36,11 +36,11 @@
         $username = $_POST["login_username"];
         $postpw = $_POST['login_password'];
 
-        $SQLstring = 'SELECT userId, Wachtwoord FROM ' . $TableName . ' WHERE Email = ?';
+        $SQLstring = 'SELECT userId, Wachtwoord, DocentPerms FROM ' . $TableName . ' WHERE Email = ?';
         if ($stmt = mysqli_prepare($conn, $SQLstring)) {
           mysqli_stmt_bind_param($stmt, 's', $username);
           mysqli_stmt_execute($stmt);
-          mysqli_stmt_bind_result($stmt, $userId, $hash);
+          mysqli_stmt_bind_result($stmt, $userId, $hash, $docentperms);
           mysqli_stmt_store_result($stmt);
           mysqli_stmt_fetch($stmt);
           if (mysqli_stmt_num_rows($stmt) > 0) {
@@ -48,8 +48,8 @@
               session_start();
               $_SESSION['loggedin'] = true;
               $_SESSION['username'] = $username;
-              $_SESSION['docent'] = 'test';
-              $_SESSION['userId'] = $$userId;
+              $_SESSION['userId'] = $userId;
+              $_SESSION['docent'] = $docentperms;
               header("Location: index.php");
             }else{
               print_r($postpw);

@@ -109,4 +109,3 @@ if(  $stmt = mysqli_prepare($conn, $query)){
   }
 }
  ?>
-*/
