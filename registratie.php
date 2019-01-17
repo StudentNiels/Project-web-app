@@ -21,7 +21,7 @@
               $pwhash = password_hash($_POST['reg_password'], PASSWORD_DEFAULT);
               mysqli_stmt_bind_param($stmt, 'sss', $_POST['reg_email'], $_POST['school'], $pwhash);
               mysqli_stmt_execute($stmt);
-              header("Location: inlog.php");
+              header("Location: inlog.php?reg=1");
             } else {
               echo "<br>Error: " . $query . "<br>" . mysqli_error($conn);
             }
