@@ -18,7 +18,7 @@ include('conn.php');
                                 <option value="overige">Overige</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
-                        <input type="file" name="file" accept=".mp4, .avi, .3gp, .mov, .mpeg"/>
+                        <input type="file" name="file" accept=".mp4"/>
                         <p><input type="submit" value="Upload" name="but_upload"></p>
                         </form>';
 
@@ -58,12 +58,12 @@ include('conn.php');
                             }
                         }
                     }
-                } else {
-                    echo "<p>U heeft niet de juiste rechten om deze functie te gebruiken</p>";
                 }
             } else {
-                header('location: inlog.php');
+                echo "<p>U heeft niet de juiste rechten om deze functie te gebruiken</p>";
             }
+        } else {
+            header('location: inlog.php');
         }
         ?>
 
