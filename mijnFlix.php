@@ -4,6 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/index.css"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="styletest.css" rel="stylesheet">
     </head>
     <body>
 
@@ -22,7 +31,7 @@
                     echo "<p>error no  data found</p>";
                 } else {
                     $TableName = "user";
-                    $stmt1 = "SELECT userID, Email, SchoolID, AbonnementID, Wachtwoord, DocentPerms FROM " . $TableName;
+                    $stmt1 = "SELECT userID, Email, SchoolID, AbonnementID, Wachtwoord, DocentPerms FROM " . $TableName. "WHERE userID = ". $_SESSION['userID'];
                     if ($stmt2 = mysqli_prepare($DBConnect, $stmt1)) {
                         mysqli_stmt_execute($stmt2);
 

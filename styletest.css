@@ -1,7 +1,10 @@
 .text-center{
 	text-align:center!important;	
 }
-
+.img-fluid{
+	padding-top: 3%;
+	
+}
 
 body{
 	color:white;

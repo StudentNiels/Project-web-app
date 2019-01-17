@@ -1,9 +1,19 @@
 <html>
-<header>
-</header>
+<head>
+<link href="css/bootstrap.css" rel="stylesheet">
+  <link href="styletest.css" rel="stylesheet">
+</head>
 <body>
-  <div class='container'>
-
+ <div class="background">
+  <div class="container">
+      <div class="row justify-content-center">      
+          <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
+		  <div class="pic-center">
+		   <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
+		  
+		  </div>
+		  <hr>
+              <div class="text-center col-6 mx-auto">
     <?php
     include('conn.php');
 
@@ -27,12 +37,13 @@
             }
           }else{
             echo 'emailadres is al in gebruik.';
-          }
+	  }   } }
           // echo 'poging';
-        }else{
+         else {
           echo 'vul beide velden in';
         }
-      }
+		
+      
     }
     ?>
     <h3> register </h3>
@@ -80,6 +91,12 @@
         <input type='submit' value='verzenden' name='reg_submit' class='btn'>
       </p>
     </form>
+   </div>
+    </div>
+          </div>
+        
+      </div>
   </div>
+</div>
 </body>
 </html>
