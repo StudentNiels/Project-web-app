@@ -1,11 +1,12 @@
 <?php
+session_start();
 include('conn.php');
+include 'sidebar.php';
 ?>
 <!DOCTYPE html>
 <html>
     <body>
         <?php
-        session_start();
         if ($_SESSION['loggedin'] == True) {
             $docentPerms = $_SESSION['docent'];
             if ($docentPerms === 1) {
