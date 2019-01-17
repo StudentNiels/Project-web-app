@@ -37,12 +37,13 @@
             }
           }else{
             echo 'emailadres is al in gebruik.';
-          }
+	  }   } }
           // echo 'poging';
-        }else{
+         else {
           echo 'vul beide velden in';
         }
-      }
+		
+      
     }
     ?>
     <h3> register </h3>
