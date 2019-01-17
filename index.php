@@ -15,11 +15,10 @@
     <title>I Learn Flix</title>
 </head>
 
-<?php
-session_start();
-  print_r($_SESSION);
- ?>
-<body>
+<body><body>
+  <?php
+  include('logcheck.php');
+  ?>
 <div class="container-fluid">
     <div class="row d-flex d-md-block flex-nowrap wrapper">
         <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
@@ -31,8 +30,6 @@ session_start();
                     </div>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-star"></i> <span class="d-none d-md-inline">Favorieten </span></a>
-                    <a href="registratie.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-registered"></i> <span class="d-none d-md-inline">Registreren</span></a>
-                    <a href="inlog.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-in-alt"></i> <span class="d-none d-md-inline">Inloggen</span></a>
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
                 </div>
         </div>

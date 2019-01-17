@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/sideBar.css" rel="stylesheet">  
+    <link href="css/sideBar.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -15,7 +15,6 @@
     <title>I Learn Flix</title>
 </head>
 
-<body>
 <div class="container-fluid">
     <div class="row d-flex d-md-block flex-nowrap wrapper">
         <div class="col-md-2 col-sm-1 float-left col-1 pl-0 pr-0 collapse width show logobg"  id="sidebar">
@@ -25,9 +24,8 @@
                     <a href="#" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-star"></i> <span class="d-none d-md-inline">Favorieten </span></a>
                     <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-registered"></i> <span class="d-none d-md-inline">Registreren</span></a>
-                    <a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-in-alt "></i> <span class="d-none d-md-inline">Inloggen</span></a>
-                    
-                    <!--<div class="list-group border-0 card text-center text-md-left">--> 
+
+                    <!--<div class="list-group border-0 card text-center text-md-left">-->
                     <div class="row socialbar d-sm-none d-md-block">
                         <!--<a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="col-auto fab fa-facebook sicons"></i><i class="col-md-2 col-lg-4 fab fa-twitter sicons"></i> <i class="col-md-4 col-lg-4 fab fa-instagram sicons"></i> <span class="d-none d-md-inline"></span></a>-->
                         <a href="https://www.facebook.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-facebook"></i><span class="d-none d-lg-inline"></span></a>
@@ -35,8 +33,8 @@
                         <a href="https://www.instagram.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-instagram"></i><span class="d-none d-lg-inline"></span></a>
                     </div>
                 </div>
-                
-            
+
+
         </div>
     </div>
 </div>

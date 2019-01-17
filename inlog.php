@@ -14,17 +14,17 @@
 <body>
   <div class="background">
   <div class="container">
-      <div class="row justify-content-center">      
+      <div class="row justify-content-center">
           <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
 		  <div class="pic-center">
 		   <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
-		  
+
 		  </div>
               <div class="text-center col-6 mx-auto">
-                    
-              
 
-      <h5> login </h5>
+
+
+      <h3> login </h3>
       <form method="post">
         <p>
 		 <div class="form-group">
@@ -41,12 +41,23 @@
           <input class="form-control" type='submit' value='Login' name='login_submit' class="">
         </div>
 		</p>
+    <p>
+      <a href='registratie.php'> Heb je nog geen account? klik hier </a>
+    </p>
       </form>
 
     <?php
+    session_start();
+    if(isset($_SESSION['loggedin'])){
+      header('Location: index.php');
+    }
+
+
     include('conn.php');
     if(isset($_GET['reg'])){
       echo 'registratie succesvol';
+    }elseif(isset($_GET['log'])){
+      echo 'Log in voordat je verder gaat!';
     }
 
     if(isset($_POST['login_submit'])){
@@ -64,7 +75,6 @@
           mysqli_stmt_fetch($stmt);
           if (mysqli_stmt_num_rows($stmt) > 0) {
             if(password_verify($postpw,$hash)){
-              session_start();
               $_SESSION['loggedin'] = true;
               $_SESSION['username'] = $username;
               $_SESSION['userId'] = $userId;
@@ -88,7 +98,7 @@
     ?>
   </div>
           </div>
-        
+
       </div>
   </div>
 </div>
