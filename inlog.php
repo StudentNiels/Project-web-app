@@ -25,7 +25,7 @@
               
 
       <h5> login </h5>
-      <form method="post" action='index.php'>
+      <form method="post">
         <p>
 		 <div class="form-group">
           <input class="form-control" type='text' name='login_username' placeholder="username">
