@@ -32,8 +32,8 @@ include 'sidebar.php';
                             $name = $_FILES['file']['name'];
                             $titel = $_POST['Titel_entered'];
                             $vak = $_POST['vak'];
-
-                            $target_location = "videos/" . $titel . ".mp4";
+                            $titelopslag = str_replace(' ', '', $titel);
+                            $target_location = "videos/" . $titelopslag . ".mp4";
                             if (($_FILES['file']['size'] === 0)) {
                                 echo "Kies een video om up te loaden!";
                             } else {
@@ -47,9 +47,9 @@ include 'sidebar.php';
                                         if ($QueryResult === FALSE) {
                                             echo "<p>Unable to execute the query.</p>"
                                             . "<p>Error code "
-                                            . mysqli_errno($DBConnect)
+                                            . mysqli_errno($conn)
                                             . ": "
-                                            . mysqli_error($DBConnect)
+                                            . mysqli_error($conn)
                                             . "</p>";
                                         } else {
                                             echo "<h1>Upload successfully.<h1>";
