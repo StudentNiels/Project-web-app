@@ -18,12 +18,22 @@
                         <div class="text-center mx-auto">
                             <?php
                             session_start();
+                            include 'conn.php';
                             $_SESSION['betaald'] = '1';
                             echo '<h1> Bedankt voor de betaling, u word nu omgeleid naar de inlog pagina.</h1>';
                             echo "<meta http-equiv=\"refresh\" content=\"5;url=inlog.php\"/>";
                             $betaald = $_SESSION['betaald'];
                             if($betaald == 1){
-                                
+                                $sql = "INSERT INTO abonnement (UserID, BetaalDatum, EindDatum) VALUES( ? , CURDATE(), curdate() + INTERVAL 1 YEAR)";
+                                if($stmt = mysqli_prepare($conn, $sql)){
+                                    mysqli_stmt_bind_param($stmt, "i", $param_userid);
+                                    $param_userid = 2;/*$_SESSION['userId']*/
+                                    if(mysqli_stmt_execute($stmt)){
+                                        
+                                    } else {
+                                        echo "Something went wrong.";
+                                    }
+                                }
                             }
                             ?>
                             <script language="JavaScript">
