@@ -6,8 +6,10 @@ CREATE TABLE `School` (
 );
 
 CREATE TABLE `Abonnement` (
+        userID INT,
 	AbonnementID INT AUTO_INCREMENT,
 	BetaalDatum DateTime,
+        EindDatum DateTime,
 	CONSTRAINT pk_abonnement
 		PRIMARY KEY(AbonnementID)
 );

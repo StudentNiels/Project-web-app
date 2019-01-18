@@ -23,7 +23,7 @@
                   $Tn = 'user';
                   $SQLstring2 = "SELECT Email FROM " . $Tn . " WHERE Email = '" . $_POST['reg_email'] . "'";
                   if ($stmt3 = mysqli_prepare($conn, $SQLstring2)) {
-                    mysqli_stmt_execute($stmt3);
+                    if(mysqli_stmt_execute($stmt3)){
                     mysqli_stmt_store_result($stmt3);
                     if (mysqli_stmt_num_rows($stmt3) == 0) {
                       $TableName = 'user';
@@ -42,7 +42,10 @@
                     }else{
                       echo 'emailadres is al in gebruik.';
                     }
+                  } else {
+                      echo "Something went wrong.";
                   }
+                  } 
                 }
                 // echo 'poging';
                 else {
@@ -50,7 +53,7 @@
                 }
               }else{
                 echo 'betaal het abbonement';
-                print_r($_SESSION);
+//                print_r($_SESSION);
               }
             }
 
@@ -97,7 +100,7 @@
                 </div>
               </p>
               <p>
-                <a href='betaling.php' target="_blank">Betaal abbonement
+                <a href='betaling.php' target="_blank">
                 </a>
               </p>
               <p>
