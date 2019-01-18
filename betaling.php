@@ -1,12 +1,32 @@
 <html>
-<div class=''>Paypal</div>
-<form method='post'>
-<input type='submit' value='Betalen' name='betaal'>
-</form>
-<?php
-if(isset($_POST['betaal'])){
-  session_start();
-  $_SESSION['betaald'] = '1';
-  echo '<h1> Bedankt voor de betaling, ga terug naar de registratie pagina om het registratie process te hervatten.</h1>';  
-}
-?>
+    <head>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="styletest.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="background">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
+                        <div class="pic-center">
+                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
+
+                        </div>
+                        <hr>
+                        <div class="text-center col-6 mx-auto">
+                            <form>
+                                <div class="form-group">
+                                    <h3>Betaal je abonnement</h3>
+                                    <a href="betaalverwerking.php"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" /></a>                                </div>
+                            </form>
+                            <?php
+                            ?>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
+
