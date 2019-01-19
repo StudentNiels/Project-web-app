@@ -42,152 +42,56 @@
                 <div class="col-md-10 col-sm-10 float-left col-1 pl-0 pr-0 collapse width show">
                     <div class="videos">
                         <div class="vak">
-                            <div class="vakHeader">
-                                <h2><a class="vak" href='databases.php'>Databases</a></h2>
-                            </div>
                             <?php
-                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = 'Databases' ORDER BY VideoID DESC LIMIT 4";
-                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                    mysqli_stmt_store_result($stmt);
-                                    if (mysqli_stmt_num_rows($stmt) == 0) {
+                            $SQLstring = "SELECT Vak FROM video GROUP BY Vak";
+                            if ($statement = mysqli_prepare($conn, $SQLstring)) {
+                                if (mysqli_stmt_execute($statement) === TRUE) {
+                                    mysqli_stmt_bind_result($statement, $vak);
+                                    mysqli_stmt_store_result($statement);
+                                    $vaktitel = ucfirst($vak);
+                                    if (mysqli_stmt_num_rows($statement) == 0) {
                                         
                                     } else {
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<div class='videobox'>
-                                        <div class='video'>
-                                            <video controls>
-                                            <source src=" . $locatie . " type='video/mp4'>
-                                            </video>
-                                        </div>
-                                        <div class='videoInfo'>
-                                            <h4 class='titel'>" . $titel . "</h4>
-                                            <p class='username'>" . $user . "</p>
-                                        </div>
-                                    </div>";
+                                        while (mysqli_stmt_fetch($statement)) {
+                                            echo "<div class='vakHeader'>
+                                                    <a class='vakLink' href='videolijst.php?vak=" . $vak . "'><h2>" . $vak . "</h2></a>
+                                                </div>";
+                                            echo $vaktitel;
+                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
+                                            if ($stmt = mysqli_prepare($conn, $query)) {
+                                                if (mysqli_stmt_execute($stmt) === TRUE) {
+                                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
+                                                    mysqli_stmt_store_result($stmt);
+                                                    if (mysqli_stmt_num_rows($stmt) == 0) {
+                                                        
+                                                    } else {
+                                                        while (mysqli_stmt_fetch($stmt)) {
+                                                            echo "<div class='videobox'>
+                                                                <div class='video'>
+                                                                    <video controls>
+                                                                    <source src=" . $locatie . " type='video/mp4'>
+                                                                    </video>
+                                                                </div>
+                                                                <div class='videoInfo'>
+                                                                    <h4 class='titel'>" . $titel . "</h4>
+                                                                    <p class='username'>" . $user . "</p>
+                                                                </div>
+                                                                </div>";
+                                                        }
+                                                    }
+
+                                                    mysqli_stmt_close($stmt);
+                                                } else {
+                                                    echo "execution failed";
+                                                }
+                                            } else {
+                                                echo "Could not prepare the statement";
+                                            }
                                         }
                                     }
-
-                                    mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "execution failed";
                                 }
-                            } else {
-                                echo "Could not prepare the statement";
                             }
                             ?>               
-                        </div>
-                        <div class="vak">
-                            <div class="vakHeader">
-                                <h2><a class="vak" href='htmlcss.php'>HTML/CSS</a></h2>
-                            </div>
-                            <?php
-                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = 'html/css' ORDER BY VideoID DESC LIMIT 4";
-                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                    mysqli_stmt_store_result($stmt);
-                                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                                        
-                                    } else {
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<div class='videobox'>
-                                        <div class='video'>
-                                            <video controls>
-                                            <source src=" . $locatie . " type='video/mp4'>
-                                            </video>
-                                        </div>
-                                        <div class='videoInfo'>
-                                            <h4 class='titel'>" . $titel . "</h4>
-                                            <p class='username'>" . $user . "</p>
-                                        </div>
-                                    </div>";
-                                        }
-                                    }
-
-                                    mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "execution failed";
-                                }
-                            } else {
-                                echo "Could not prepare the statement";
-                            }
-                            ?>             
-                        </div>
-                        <div class="vak">
-                            <div class="vakHeader">
-                                <h2><a class="vak" href='php.php'>PHP</a></h2>
-                            </div>
-                            <?php
-                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = 'php' ORDER BY VideoID DESC LIMIT 4";
-                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                    mysqli_stmt_store_result($stmt);
-                                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                                        
-                                    } else {
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<div class='videobox'>
-                                        <div class='video'>
-                                            <video controls>
-                                            <source src=" . $locatie . " type='video/mp4'>
-                                            </video>
-                                        </div>
-                                        <div class='videoInfo'>
-                                            <h4 class='titel'>" . $titel . "</h4>
-                                            <p class='username'>" . $user . "</p>
-                                        </div>
-                                    </div>";
-                                        }
-                                    }
-
-                                    mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "execution failed";
-                                }
-                            } else {
-                                echo "Could not prepare the statement";
-                            }
-                            ?>             
-                        </div>
-                        <div class="vak">
-                            <div class="vakHeader">
-                                <h2><a class="vak" href='Overige.php'>Overige</a></h2>
-                            </div>
-                            <?php
-                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = 'overige' ORDER BY VideoID DESC LIMIT 4";
-                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                    mysqli_stmt_store_result($stmt);
-                                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                                        
-                                    } else {
-                                        while (mysqli_stmt_fetch($stmt)) {
-                                            echo "<div class='videobox'>
-                                        <div class='video'>
-                                            <video controls>
-                                            <source src=" . $locatie . " type='video/mp4'>
-                                            </video>
-                                        </div>
-                                        <div class='videoInfo'>
-                                            <h4 class='titel'>" . $titel . "</h4>
-                                            <p class='username'>" . $user . "</p>
-                                        </div>
-                                    </div>";
-                                        }
-                                    }
-
-                                    mysqli_stmt_close($stmt);
-                                } else {
-                                    echo "execution failed";
-                                }
-                            } else {
-                                echo "Could not prepare the statement";
-                            }
-                            ?>             
                         </div>
                     </div>
                 </div>
