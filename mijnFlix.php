@@ -22,6 +22,7 @@
         Print_r($_SESSION);
         $TableName = "user";
         $stmt1 = "SELECT Email, SchoolID, AbonnementID, Wachtwoord, DocentPerms FROM " . $TableName . "WHERE userId = " . $_SESSION['userId'];
+        // add join query voor wat oproepen. $query = "SELECT message, userName, userImagePath FROM " . $TableName . " JOIN " . $TableName2 . " WHERE " . $TableName . ".userId = " . $TableName2 . ".userId ORDER BY msgId DESC;";
         if ($stmt2 = mysqli_prepare($conn, $stmt1)) {
             mysqli_stmt_execute($stmt2);
 
@@ -48,24 +49,24 @@
         }
         mysqli_close($conn);
 
-
         echo '</pre>';
         ?>
 
-        <h2>Jouw profiel</h2> 
+        <h2>MijnFlix</h2> 
 
         <?php
         echo"<form method='POST'>";
-
+        echo "<p>Your profile</p>";
         echo"<p>" . $_SESSION['username'] . "</p>";
 
-        if (isset($_SESSION['docent'])) {
-            echo"<p>" . $_SESSION['docent'] . "</p>";
-        }
+        
         echo"<p>AbonnementID</p>";
         echo"<p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p>";
         echo"<p> $_SESSION[$SchoolID] </p>";
         echo"<p><input type='submit' value='Submit' /></p>";
+        if ($_SESSION['docent'] = 1) {
+            echo"<p>Leraar Privileges toegekend <img src='images/approved.png' alt='goedgekeurd' height='90px' width='105'></p>";
+        }
         echo"</form>";
         echo"<p><a href='index.php'>Terug</a></p>";
 
