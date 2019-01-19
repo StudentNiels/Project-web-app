@@ -13,10 +13,10 @@ include 'sidebar.php';
                 echo '<form method="post" action="uploadvideo.php" enctype="multipart/form-data">
                         <p>Enter het vak: 
                             <select name="vak">
-                                <option value="php">PHP</option>
-                                <option value="html/css">HTML/CSS</option>
-                                <option value="databases">Databases</option>
-                                <option value="overige">Overige</option>
+                                <option value="PHP">PHP</option>
+                                <option value="HTML/CSS">HTML/CSS</option>
+                                <option value="Databases">Databases</option>
+                                <option value="Overige">Overige</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
                         <input type="file" name="file" accept=".mp4"/>
