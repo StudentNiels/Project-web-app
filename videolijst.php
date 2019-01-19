@@ -54,7 +54,7 @@
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
-                                                    <h2>" . $vak . "</h2>
+                                                    <h2 class='vakTitel'>" . $vak . "</h2>
                                                 </div>";
                                             $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC";
                                             if ($stmt = mysqli_prepare($conn, $query)) {

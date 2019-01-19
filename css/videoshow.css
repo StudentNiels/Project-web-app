@@ -14,7 +14,6 @@
     height: 40px;
     background-color: #096f96;
     margin-bottom: 5px;
-    margin-top: 200px;
     float: left;
 }
 .videobox {
@@ -43,7 +42,9 @@ video {
     padding-left: 5px;
     float: left;
 }
-h2 {
+.vakTitel {
     padding-left: 5px;
     color: white;
+    float: left;
+    text-decoration: none;
 }
