@@ -33,7 +33,9 @@ include 'sidebar.php';
                             $titel = $_POST['Titel_entered'];
                             $vak = $_POST['vak'];
                             $titelopslag = str_replace(' ', '', $titel);
-                            $target_location = "videos/" . $titelopslag . ".mp4";
+                            $titelopslag1 = str_replace('.', '', $titelopslag);
+                            $titelopslag2 = str_replace('/', '', $titelopslag1);
+                            $target_location = "videos/" . $titelopslag2 . ".mp4";
                             if (($_FILES['file']['size'] === 0)) {
                                 echo "Kies een video om up te loaden!";
                             } else {
