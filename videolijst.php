@@ -19,27 +19,13 @@
     <body>
         <?php
         include('conn.php');
+        
         include('logcheck.php');
+        include('sidebar.php');
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-2 float-left col-1 pl-0 pr-0 collapse width show" id="sidebar">
-                    <a><img class="img-fluid" id="logo" src="images/logoB-01.svg"></a>
-                    <div class="list-group border-0 card text-center text-md-left">
-
-                        <a href="#menu1" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
-                        <div class="collapse" id="menu1" data-parent="#sidebar">
-                        </div>
-                        <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
-                        <a href="#menu3" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-star"></i> <span class="d-none d-md-inline">Favorieten </span></a>
-                        <a href="loguit.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-10 col-sm-10 float-left col-1 pl-0 pr-0 collapse width show">
+                <div class="col-md-10 col-sm-11 float-left col-1 pl-0 pr-0 collapse width show">
                     <div class="videos">
                         <div class="vak">
                             <?php
