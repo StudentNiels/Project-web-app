@@ -13,10 +13,10 @@ include 'sidebar.php';
                 echo '<form method="post" action="uploadvideo.php" enctype="multipart/form-data">
                         <p>Enter het vak: 
                             <select name="vak">
-                                <option value="php">PHP</option>
-                                <option value="html/css">HTML/CSS</option>
-                                <option value="databases">Databases</option>
-                                <option value="overige">Overige</option>
+                                <option value="PHP">PHP</option>
+                                <option value="HTML/CSS">HTML/CSS</option>
+                                <option value="Databases">Databases</option>
+                                <option value="Overige">Overige</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
                         <input type="file" name="file" accept=".mp4"/>
@@ -32,8 +32,10 @@ include 'sidebar.php';
                             $name = $_FILES['file']['name'];
                             $titel = $_POST['Titel_entered'];
                             $vak = $_POST['vak'];
-
-                            $target_location = "videos/" . $titel . ".mp4";
+                            $titelopslag = str_replace(' ', '', $titel);
+                            $titelopslag1 = str_replace('.', '', $titelopslag);
+                            $titelopslag2 = str_replace('/', '', $titelopslag1);
+                            $target_location = "videos/" . $titelopslag2 . ".mp4";
                             if (($_FILES['file']['size'] === 0)) {
                                 echo "Kies een video om up te loaden!";
                             } else {
@@ -47,9 +49,9 @@ include 'sidebar.php';
                                         if ($QueryResult === FALSE) {
                                             echo "<p>Unable to execute the query.</p>"
                                             . "<p>Error code "
-                                            . mysqli_errno($DBConnect)
+                                            . mysqli_errno($conn)
                                             . ": "
-                                            . mysqli_error($DBConnect)
+                                            . mysqli_error($conn)
                                             . "</p>";
                                         } else {
                                             echo "<h1>Upload successfully.<h1>";

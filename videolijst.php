@@ -43,21 +43,20 @@
                     <div class="videos">
                         <div class="vak">
                             <?php
-                            $SQLstring = "SELECT Vak FROM video GROUP BY Vak";
+                            $vakLijst = $_GET['vak'];
+                            $SQLstring = "SELECT Vak FROM video WHERE vak = '{$vakLijst}' GROUP BY Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
                                     mysqli_stmt_bind_result($statement, $vak);
                                     mysqli_stmt_store_result($statement);
-                                    $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
                                         
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
-                                                    <a href='videolijst.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
+                                                    <h2 class='vakTitel'>" . $vak . "</h2>
                                                 </div>";
-                                            echo $vaktitel;
-                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
+                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC";
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
                                                     mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
