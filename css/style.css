@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22-jan-2019, 13:02:14
+    Author     : Sneakyshrimp
+*/
+
+body {
+    /*background-color: #202534;*/
+    background-color: grey;
+    font-family: FontAwesome;
+    color: white;
+}
+
+h1, h2, h3, p, c-error, c-validation, c-label   {  
+    font-family: FontAwesome;
+    color: white;
+}
+
+a {
+    color: navy;
+}
+
+
+
+
