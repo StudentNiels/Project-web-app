@@ -73,35 +73,39 @@
                 $username = $_POST["login_username"];
                 $postpw = $_POST['login_password'];
 
-                $SQLstring = 'SELECT user.userId, Wachtwoord, DocentPerms, EindDatum FROM user INNER JOIN abonnement  ON user.userID = `abonnement`.userID WHERE Email = ?';
+                $SQLstring = 'SELECT user.userId, Wachtwoord, SchoolID, DocentPerms, EindDatum FROM user INNER JOIN abonnement  ON user.userID = `abonnement`.userID WHERE Email = ?';
                 if ($stmt = mysqli_prepare($conn, $SQLstring)) {
                   mysqli_stmt_bind_param($stmt, 's', $username);
                   mysqli_stmt_execute($stmt);
-                  mysqli_stmt_bind_result($stmt, $userId, $hash, $docentperms, $abonnement);
+                  mysqli_stmt_bind_result($stmt, $userId, $hash,$schoolid, $docentperms, $abonnement);
                   mysqli_stmt_store_result($stmt);
                   mysqli_stmt_fetch($stmt);
-                  echo $abonnement;
-                  exit;
-                  if (mysqli_stmt_num_rows($stmt) > 0) {
-                    if(password_verify($postpw,$hash)){
-                      $_SESSION['loggedin'] = true;
-                      $_SESSION['username'] = $username;
-                      $_SESSION['userId'] = $userId;
-                      $_SESSION['docent'] = $docentperms;
-                      // header("Location: index.php");
-                    }else{
-                      // print_r($postpw);
-                    }
+                  if(strtotime($abbonment) > time()){
+                    echo 'Abonnement is verlopen';
                   }else{
-                    echo 'Inlog mislukt';
+                    if (mysqli_stmt_num_rows($stmt) > 0) {
+                      if(password_verify($postpw,$hash)){
+                        $_SESSION['loggedin'] = true;
+                        $_SESSION['username'] = $username;
+                        $_SESSION['userId'] = $userId;
+                        $_SESSION['docent'] = $docentperms;
+                        $_SESSION['schoolid'] = $schoolid;
+
+                        // header("Location: index.php");
+                      }else{
+                        // print_r($postpw);
+                      }
+                    }else{
+                      echo 'Inlog mislukt';
+                    }
                   }
-                }else{
-                  echo 'prepare mislukt';
+                  }else{
+                    echo 'prepare mislukt';
+                }
                 }
                 mysqli_stmt_close($stmt);
                 mysqli_close($conn);
               }
-            }
             ?>
           </div>
         </div>
