@@ -18,8 +18,9 @@
 
     <body>
         <?php
-        include('conn.php');     
-        include('logcheck.php');
+        session_start();
+        include('conn.php');
+       // include('logcheck.php');
         include('sidebar.php');
         ?>
         <div class="container-fluid">
@@ -28,29 +29,20 @@
                     <div class="videos">
                         <div class="vak">
                             <?php
-                            $vakLijst = $_GET['vak'];
-                            $SQLstring = "SELECT Vak FROM video WHERE vak = '{$vakLijst}' GROUP BY Vak";
-                            if ($statement = mysqli_prepare($conn, $SQLstring)) {
-                                if (mysqli_stmt_execute($statement) === TRUE) {
-                                    mysqli_stmt_bind_result($statement, $vak);
-                                    mysqli_stmt_store_result($statement);
-                                    if (mysqli_stmt_num_rows($statement) == 0) {
-                                        
-                                    } else {
-                                        while (mysqli_stmt_fetch($statement)) {
-                                            echo "<div class='vakHeader'>
-                                                    <h2 class='vakTitel'>" . $vak . "</h2>
+                            $email = $_SESSION['username'];
+                            echo "<div class='vakHeader'>
+                                                    <h2 class='vakTitel'>Uw Video's</h2>
                                                 </div>";
-                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC";
-                                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                                    mysqli_stmt_store_result($stmt);
-                                                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                                                        
-                                                    } else {
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            echo "<div class='videobox'>
+                            $query = "SELECT videoID, Locatie, Titel FROM video JOIN user ON video.userID = user.userID WHERE email = 'sytze@sytze.nl' ORDER BY VideoID DESC";
+                            if ($stmt = mysqli_prepare($conn, $query)) {
+                                if (mysqli_stmt_execute($stmt) === TRUE) {
+                                    mysqli_stmt_bind_result($stmt,$videoid, $locatie, $titel);
+                                    mysqli_stmt_store_result($stmt);
+                                    if (mysqli_stmt_num_rows($stmt) == 0) {
+                                        echo "<p>You have no uploaded video's</p>";
+                                    } else {
+                                        while (mysqli_stmt_fetch($stmt)) {
+                                            echo "<div class='videobox'>
                                                                 <div class='video'>
                                                                     <video controls>
                                                                     <source src=" . $locatie . " type='video/mp4'>
@@ -58,22 +50,18 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $titel . "</h4>
-                                                                    <p class='username'>" . $user . "</p>
+                                                                    <a href='videodelete.php?id=" . $videoid . "'<p class='username'>Delete this video</p></a>
                                                                 </div>
                                                                 </div>";
-                                                        }
-                                                    }
-
-                                                    mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "execution failed";
-                                                }
-                                            } else {
-                                                echo "Could not prepare the statement";
-                                            }
                                         }
                                     }
+
+                                    mysqli_stmt_close($stmt);
+                                } else {
+                                    echo "execution failed";
                                 }
+                            } else {
+                                echo "Could not prepare the statement";
                             }
                             ?>               
                         </div>
