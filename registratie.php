@@ -71,6 +71,7 @@
                                         $param_school = $school;
                                         $param_password = password_hash($password, PASSWORD_DEFAULT);
                                         if (mysqli_stmt_execute($stmt)) {
+                                            $_SESSION['temp_betaling'] = $email;
                                             header('location: betaling.php');
                                         } else {
                                             echo "Something went wrong";
@@ -87,7 +88,7 @@
                                     <label>Email</label>
                                     <input type="email" name="reg_email" class="form-control" value="<?php echo $email; ?>">
                                     <span class="help-block"><?php echo $email_err; ?></span>
-                                </div> 
+                                </div>
                                 <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                                     <label>Password</label>
                                     <input type="password" name="reg_password" class="form-control">
