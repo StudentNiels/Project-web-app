@@ -1,4 +1,4 @@
-﻿  INSERT INTO `school` (`SchoolID`, `SchoolNaam`) VALUES
+INSERT INTO `school` (`SchoolID`, `SchoolNaam`) VALUES
 (1, 'ABC Hogeschool\r\n'),
 (2, 'Academie Artemis Hogeschool voor Styling\r\n'),
 (3, 'Academie voor Wetgeving\r\n'),
@@ -96,4 +96,3 @@
 (95, 'Windesheim\r\n'),
 (96, 'Wittenborg University of Applied Sciences\r\n'),
 (97, 'Zuyd Hogeschool\r\n');
-

@@ -28,7 +28,7 @@
             <form method="post">
               <p>
                 <div class="form-group">
-                  <input class="form-control" type='text' name='login_username' placeholder="username">
+                  <input class="form-control" type='email' name='login_username' placeholder="username">
                 </div>
               </p>
               <p>
@@ -80,8 +80,9 @@
                   mysqli_stmt_bind_result($stmt, $userId, $hash,$schoolid, $docentperms, $abonnement);
                   mysqli_stmt_store_result($stmt);
                   mysqli_stmt_fetch($stmt);
-                  if(strtotime($abbonment) > time()){
-                    echo 'Abonnement is verlopen';
+                  if(strtotime($abonnement) < time()){
+                    echo 'Abonnement is verlopen <br>';
+                    echo $abonnement;
                   }else{
                     if (mysqli_stmt_num_rows($stmt) > 0) {
                       if(password_verify($postpw,$hash)){
@@ -90,22 +91,25 @@
                         $_SESSION['userId'] = $userId;
                         $_SESSION['docent'] = $docentperms;
                         $_SESSION['schoolid'] = $schoolid;
-
-                        // header("Location: index.php");
+                        echo 'Abonnement is goed <br>';
+                        echo $abonnement;
+                        echo '<br>';
+                        header("Location: index.php");
                       }else{
-                        // print_r($postpw);
+                        print_r($postpw);
                       }
                     }else{
-                      echo 'Inlog mislukt';
+                      echo 'Login info incorrect';
                     }
                   }
-                  }else{
-                    echo 'prepare mislukt';
+                  mysqli_stmt_close($stmt);
+                  mysqli_close($conn);
+                }else{
+                  echo 'prepare mislukt';
                 }
-                }
-                mysqli_stmt_close($stmt);
-                mysqli_close($conn);
               }
+            }
+
             ?>
           </div>
         </div>
