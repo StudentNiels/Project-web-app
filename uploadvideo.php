@@ -30,7 +30,6 @@ include ('sidebar.php');
                                 <option value="PHP">PHP</option>
                                 <option value="HTML/CSS">HTML/CSS</option>
                                 <option value="Databases">Databases</option>
-                                <option value="Overige">Overige</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
                         <p>Kies de taal waarin je wilt uploaden: <input type="radio" name="taal" value="(NL)"> Nederlands

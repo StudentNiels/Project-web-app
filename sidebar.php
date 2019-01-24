@@ -19,7 +19,7 @@ include('logcheck.php');
 
         <div class="container-fluid">
         <div class="row d-flex d-md-block flex-nowrap wrapper">
-            <div class="col-md-2 col-sm-2 col-lg-2 float-left col-2 pl-0 pr-0 collapse width show logobg" id="sidebar">
+            <div class="col-md-2 col-sm-2 col-xs-1 col-lg-2 float-left col-2 pl-0 pr-0 collapse width show logobg" id="sidebar">
                 <img class="img-fluid" id="logo" src="images/logoB-01.svg">
                 <div class="list-group border-0 card text-center text-md-left">
                     <form method="post" action="search.php">
