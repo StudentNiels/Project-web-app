@@ -41,7 +41,7 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie.php'> Don't have an account? Click here to register! </a>
+                                    <a href='registratie_EN.php'> Don't have an account? Click here to register! </a>
                                 </p>
                             </form>
 
@@ -52,7 +52,7 @@
                             }
                             include('conn.php');
                             if (isset($_GET['reg'])) {
-                                echo 'Registratie succesvol';
+                                echo 'Registration succesfull';
                             } elseif (isset($_GET['log'])) {
                                 echo 'Log in before you continue!';
                             }
@@ -98,7 +98,7 @@
                                         mysqli_stmt_close($stmt);
                                         mysqli_close($conn);
                                     } else {
-                                        echo 'Prepare mislukt';
+                                        echo 'Prepare failed';
                                     }
                                 }
                             }
