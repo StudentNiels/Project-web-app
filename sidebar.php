@@ -24,11 +24,11 @@ include('logcheck.php');
                 <div class="list-group border-0 card text-center text-md-left">
                     <a href="index.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
-                    <a href="loguit.php" class="list-group-item d-inline-block collapsed uwu" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
                     <form method="post" action="search.php">
-                        <i class="offset-sm-0 fas fa-search uwu"></i><span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder=""></p></span>
+                        <i class="offset-sm-0 fas fa-search uwu"></i><span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr"></p></span>
                     </form>
-                    <!--<div class="list-group border-0 card text-center text-md-left">-->
+                    <a href="loguit.php" class="list-group-item d-inline-block collapsed uwu" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
+                    
                     <div class="row socialbar d-sm-n2one d-md-block list-group-item d-inline-block collapsed">
                         <div class="col-sm-11 col-md-11 col-lg-11 offset-sm-2">
                          <!--<a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="col-auto fab fa-facebook sicons"></i><i class="col-md-2 col-lg-4 fab fa-twitter sicons"></i> <i class="col-md-4 col-lg-4 fab fa-instagram sicons"></i> <span class="d-none d-md-inline"></span></a>-->
