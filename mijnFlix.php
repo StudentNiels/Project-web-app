@@ -47,7 +47,6 @@
                 }
                 echo "</table>";
                 echo "</div>";
-                echo"<p><a href='index.php'>Terug</a></p>";
 
                 if ($_SESSION['docent'] === 1) {
                     echo "<p><a href=uploadvideo.php>Upload een video</a></p>";

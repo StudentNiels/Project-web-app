@@ -32,5 +32,12 @@ a {
 {
     padding-left: 50px;
 }
-
+.center{
+    padding-top: 1%;
+    float: none;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+    width: 40%;
+}
 
