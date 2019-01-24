@@ -41,7 +41,7 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-                                      echo 'geen favorieten';
+                                      echo '<br><br><h3> Klik op de homepagina onder een video op \'favoeriet\' om een video toe te voegen aan favorieten</h3>';
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>

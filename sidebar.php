@@ -24,6 +24,8 @@ include('logcheck.php');
                 <div class="list-group border-0 card text-center text-md-left">
                     <a href="index.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
+                    <a href="favorieten.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-asterisk"></i> <span class="d-none d-md-inline">Favorieten</span></a>
+
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
                     <form method="post" action="search.php">
                         <br><input type="text" name="searchstr" placeholder="">
