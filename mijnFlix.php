@@ -19,7 +19,7 @@
         <?php
         include('conn.php');
         include('sidebar.php');
-        echo"<h1>MijnFlix</h1>";
+        echo"<div id='mijnflix'><h1>MijnFlix</h1>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
 
         if ($stmt1 = mysqli_prepare($conn, $query)) {
@@ -29,25 +29,31 @@
             if (mysqli_stmt_num_rows($stmt1) == 0) {
                 echo "nothing found";
             } else {
-                echo"<form method='POST'>";
+                echo "<div class='container-fluid'>";
                 echo "<h3>Your profile</h3>";
-                echo"<p>" . $_SESSION['username'] . "</p>";
-                echo"<p>AbonnementID</p>";
-                echo"<p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p>";
+                echo "<table>";
+                echo "<tr><th>username</th>";
+                echo "<th>wachtwoord</th>";
+                echo "<th>school</th>";
+                echo "<th>privileges</th></tr>";
+                echo"<tr><td><p>" . $_SESSION['username'] . "</p></td>";
+
+                echo"<td><p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p></td>";
                 while (mysqli_stmt_fetch($stmt1)) {
-                    echo "<p>" . $SchoolNaam . "</p>";
+                    echo "<td><p>" . $SchoolNaam . "</p></td>";
                 }
                 if ($_SESSION['docent'] === 1) {
-                    echo"<p>Leraar Privileges toegekend </p>";
+                    echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
                 }
-                echo"</form>";
+                echo "</table>";
+                echo "</div>";
                 echo"<p><a href='index.php'>Terug</a></p>";
 
                 if ($_SESSION['docent'] === 1) {
                     echo "<p><a href=uploadvideo.php>Upload een video</a></p>";
-                    echo "<p><a href=videobeheer.php>Beheer je video's</a></p>";
+                    echo "<p><a href=videobeheer.php>Beheer je video's</a></p></div>";
                 } else {
-                    echo"Indien u een leraar bent en u graag een video wil uploaden contacteer dan de administratie via admin@email.com";
+                    echo"Indien u een leraar bent en u graag een video wil uploaden contacteer dan de administratie via admin@email.com</div>";
                 }
                 $conn = mysqli_connect("localhost", "root", "");
 
