@@ -51,7 +51,7 @@
                                             mysqli_stmt_store_result($stmt);
                                         } if (mysqli_stmt_num_rows($stmt) == 0) {
                                             echo "<div class='vakHeader'>
-                                                    <h2 class='vakTitel'>No results</h2>
+                                                    <h2 class='vakTitel'>Geen Resultaten</h2>
                                                 </div>";
                                         } else {
                                             echo "<div class='vakHeader'>
