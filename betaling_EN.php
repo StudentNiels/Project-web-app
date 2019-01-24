@@ -10,7 +10,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
                         <div class="pic-center">
-                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg" alt='logo van i learn flix'></a>
+                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg" alt='logo from i learn flix'></a>
 
                         </div>
                         <hr>
