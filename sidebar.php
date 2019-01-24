@@ -20,7 +20,7 @@ include('logcheck.php');
     <div class="container-fluid">
         <div class="row d-flex d-md-block flex-nowrap wrapper">
             <div class="col-md-2 col-sm-3 col-lg-3 float-left col-3 pl-0 pr-0 collapse width show logobg"  id="sidebar">
-                <a><img class="img-fluid" id="logo" src="images/logoB-01.svg"></a>
+                <img class="img-fluid" id="logo" src="images/logoB-01.svg">
                 <div class="list-group border-0 card text-center text-md-left">
                     <a href="index.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
