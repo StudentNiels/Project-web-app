@@ -1,5 +1,3 @@
-
-
 <html>
     <head>
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -20,6 +18,9 @@
                             session_start();
                             include 'conn.php';
                             $_SESSION['betaald'] = '1';
+                            echo '<h1> Bedankt voor de betaling, u word nu omgeleid naar de inlog pagina.</h1>';
+                          echo "<meta http-equiv=\"refresh\" content=\"5;url=inlog.php\"/>";
+                          $betaald = $_SESSION['betaald'];
                             $userid_query = 'SELECT UserID FROM user WHERE Email = ?';
                            if($id_stmt = mysqli_prepare($conn, $userid_query)){
                              mysqli_stmt_bind_param($id_stmt, 's', $_SESSION['temp_betaling']);
@@ -43,6 +44,7 @@
                                  }
                              }
                                 }
+                                ?>
                             </script>
                         </div>
                     </div>
