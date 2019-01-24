@@ -31,15 +31,15 @@
                 echo "Nothing found";
             } else {
                 echo "<div class='container-fluid'>";
-                echo "<h3>Your profile</h3>";
                 echo "<table>";
-                echo "<tr><th>Username/Email</th></tr>";
+                echo "<h3>Your profile</h3>";
+                echo "<tr><th>Username/Email:</th></tr>";
                 echo"<tr><td><p>" . $Email . "</p></td></tr>";
 
-                echo "<tr><th>Wachtwoord of Email wijzigen</th></tr>";
+                echo "<tr><th>Wachtwoord of Email wijzigen:</th></tr>";
                 echo"<tr><td><p><a href=pwchange.php>Klik hier</a></p></td></tr>";
 
-                echo "<tr><th>School</th></tr>";
+                echo "<tr><th>School:</th></tr>";
                 echo "<tr><td><p>" . $SchoolNaam . "</p></td></tr>";
                 if ($DocentPerms === 1) {
                     echo "<tr><th>Privileges</th></tr>";
