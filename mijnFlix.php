@@ -35,7 +35,7 @@
                 echo"<p>AbonnementID</p>";
                 echo"<p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p>";
                 while (mysqli_stmt_fetch($stmt1)) {
-                    echo $SchoolNaam;
+                    echo "<p>" . $SchoolNaam . "</p>";
                 }
                 if ($_SESSION['docent'] = 1) {
                     echo"<p>Leraar Privileges toegekend <img src='images/approved.png' alt='goedgekeurd' height='90px' width='105'></p>";
