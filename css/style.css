@@ -10,7 +10,6 @@ and open the template in the editor.
 
 body {
     background-color: #202534;
-    background-color: grey;
     font-family: FontAwesome;
     color: white;
 }
@@ -24,6 +23,9 @@ a {
     color: navy;
 }
 
-
+.bcolor{
+	 background-color: #202534;
+	
+}
 
 
