@@ -19,7 +19,6 @@
     <body>
         <?php
         include('conn.php');
-        include('logcheck.php');
         include('sidebar.php');
         ?>
         <div class="container-fluid">

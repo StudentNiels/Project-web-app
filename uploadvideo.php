@@ -1,7 +1,6 @@
 <?php
-session_start();
 include('conn.php');
-include 'sidebar.php';
+include ('sidebar.php');
 ?>
 <!DOCTYPE html>
 <html>
