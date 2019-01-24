@@ -18,34 +18,33 @@
                             session_start();
                             include 'conn.php';
                             $_SESSION['betaald'] = '1';
-                            echo '<h1> Bedankt voor de betaling, u word nu omgeleid naar de inlog pagina.</h1>';
-                          echo "<meta http-equiv=\"refresh\" content=\"5;url=inlog.php\"/>";
-                          $betaald = $_SESSION['betaald'];
+                            echo '<h1> Bedankt voor de betaling, u wordt nu omgeleid naar de inlog pagina.</h1>';
+                            echo "<meta http-equiv=\"refresh\" content=\"5;url=inlog.php\"/>";
+                            $betaald = $_SESSION['betaald'];
                             $userid_query = 'SELECT UserID FROM user WHERE Email = ?';
-                           if($id_stmt = mysqli_prepare($conn, $userid_query)){
-                             mysqli_stmt_bind_param($id_stmt, 's', $_SESSION['temp_betaling']);
-                             if(mysqli_stmt_execute($id_stmt)){
-                               mysqli_stmt_store_result($id_stmt);
-                               mysqli_stmt_bind_result($id_stmt, $userid);
-                               mysqli_stmt_fetch($id_stmt);
-                             } else {
-                                 echo "Something went wrong.";
-                             }
-                             if($betaald == 1){
-                                 $sql = "INSERT INTO abonnement (UserID, BetaalDatum, EindDatum) VALUES( ? , CURDATE(), curdate() + INTERVAL 1 YEAR)";
-                                 if($stmt = mysqli_prepare($conn, $sql)){
-                                   $param_userid = $userid;
-                                     mysqli_stmt_bind_param($stmt, "i", $param_userid);
-                                     if(mysqli_stmt_execute($stmt)){
-
-                                     } else {
-                                         echo "Something went wrong.";
-                                     }
-                                 }
-                             }
+                            if ($id_stmt = mysqli_prepare($conn, $userid_query)) {
+                                mysqli_stmt_bind_param($id_stmt, 's', $_SESSION['temp_betaling']);
+                                if (mysqli_stmt_execute($id_stmt)) {
+                                    mysqli_stmt_store_result($id_stmt);
+                                    mysqli_stmt_bind_result($id_stmt, $userid);
+                                    mysqli_stmt_fetch($id_stmt);
+                                } else {
+                                    echo "Something went wrong.";
                                 }
-                                ?>
-                            </script>
+                                if ($betaald == 1) {
+                                    $sql = "INSERT INTO abonnement (UserID, BetaalDatum, EindDatum) VALUES( ? , CURDATE(), curdate() + INTERVAL 1 YEAR)";
+                                    if ($stmt = mysqli_prepare($conn, $sql)) {
+                                        $param_userid = $userid;
+                                        mysqli_stmt_bind_param($stmt, "i", $param_userid);
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            
+                                        } else {
+                                            echo "Something went wrong.";
+                                        }
+                                    }
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
