@@ -19,7 +19,7 @@
         <?php
         include('conn.php');
         include('sidebar.php');
-        echo"<h2>MijnFlix</h2>";
+        echo"<h1>MijnFlix</h1>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
 
         if ($stmt1 = mysqli_prepare($conn, $query)) {
@@ -30,7 +30,7 @@
                 echo "nothing found";
             } else {
                 echo"<form method='POST'>";
-                echo "<p>Your profile</p>";
+                echo "<h3>Your profile</h3>";
                 echo"<p>" . $_SESSION['username'] . "</p>";
                 echo"<p>AbonnementID</p>";
                 echo"<p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p>";
