@@ -149,21 +149,21 @@
     background-color: #333;
     }
     .sicons{
-    margin-left: 5px;
+    /*margin-left: 5    px;*/
     padding-left: 0px;
     padding-right: 0px;
     }
 }
 @media (min-width: 992px){
     .sicons{
-    margin-left: 16px;
+    /*margin-left: 16px;*/
     padding-left: 0px;
     padding-right: 0px;
     }
 }
 @media (min-width: 1500px){
     .sicons{
-    margin-left: 20px;
+    /*margin-left: 20px;*/
     padding-left: 15px;
     padding-right: 15px;
     }
