@@ -33,6 +33,8 @@ include ('sidebar.php');
                                 <option value="Overige">Overige</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
+                        <p>Kies de taal waarin je wilt uploaden: <input type="radio" name="taal" value="(NL)"> Nederlands
+                        <input type="radio" name="taal" value="(EN)"> Engels</p>
                         <input type="file" name="file" accept=".mp4"/>
                         <p><input type="submit" value="Upload" name="but_upload"></p>
                         </form>';
@@ -42,9 +44,10 @@ include ('sidebar.php');
                         echo "<p>Vul alle velden in</p>";
                     } else {
                         if (isset($_POST['but_upload'])) {
+                            $taal = $_POST['taal'];
                             $userID = $_SESSION['userId'];
                             $name = $_FILES['file']['name'];
-                            $titel = $_POST['Titel_entered'];
+                            $titel = $taal . " " . $_POST['Titel_entered'];
                             $vak = $_POST['vak'];
                             $titelopslag = str_replace(' ', '', $titel);
                             $titelopslag1 = str_replace('.', '', $titelopslag);
@@ -53,24 +56,41 @@ include ('sidebar.php');
                             if (($_FILES['file']['size'] === 0)) {
                                 echo "Kies een video om up te loaden!";
                             } else {
-                                // Upload
-                                if (move_uploaded_file($_FILES['file']['tmp_name'], $target_location)) {
-                                    // Insert record
-                                    $query = "INSERT INTO video(UserID, Titel, Vak, Locatie) VALUES( ?, ?, ?, ?)";
-                                    if ($stmt = mysqli_prepare($conn, $query)) {
-                                        mysqli_stmt_bind_param($stmt, 'isss', $userID, $titel, $vak, $target_location);
-                                        $QueryResult = mysqli_stmt_execute($stmt);
-                                        if ($QueryResult === FALSE) {
-                                            echo "<p>Unable to execute the query.</p>"
-                                            . "<p>Error code "
-                                            . mysqli_errno($conn)
-                                            . ": "
-                                            . mysqli_error($conn)
-                                            . "</p>";
+                                $SQLString = "SELECT videoId FROM video WHERE titel = '{$titel}'";
+                                if ($r = mysqli_prepare($conn, $SQLString)) {
+                                    if (mysqli_stmt_execute($r)) {
+                                        mysqli_stmt_bind_result($r, $id);
+                                        mysqli_stmt_store_result($r);
+                                        mysqli_stmt_fetch($r);
+                                        if (mysqli_stmt_num_rows($r) === 0) {
+                                            if (move_uploaded_file($_FILES['file']['tmp_name'], $target_location)) {
+                                                // Insert record
+                                                $query = "INSERT INTO video(UserID, Titel, Vak, Locatie) VALUES( ?, ?, ?, ?)";
+                                                if ($stmt = mysqli_prepare($conn, $query)) {
+                                                    mysqli_stmt_bind_param($stmt, 'isss', $userID, $titel, $vak, $target_location);
+                                                    $QueryResult = mysqli_stmt_execute($stmt);
+                                                    if ($QueryResult === FALSE) {
+                                                        echo "<p>Unable to execute the query.</p>"
+                                                        . "<p>Error code "
+                                                        . mysqli_errno($conn)
+                                                        . ": "
+                                                        . mysqli_error($conn)
+                                                        . "</p>";
+                                                    } else {
+                                                        echo "<h1>Upload successfully.<h1>";
+                                                    }
+                                                } else {
+                                                    echo "could not prepare statment";
+                                                }
+                                            } else {
+                                                echo "<p>kan deze video niet uploaden.</p>";
+                                            }
                                         } else {
-                                            echo "<h1>Upload successfully.<h1>";
+                                            echo "<p>Er bestaat al een video met deze titel, kies alstublieft een andere titel voor uw video.</p>";
                                         }
                                     }
+                                } else {
+                                    echo "failed to prepare statment";
                                 }
                             }
                         }
@@ -78,11 +98,10 @@ include ('sidebar.php');
                 }
             } else {
                 echo "<p>U heeft niet de juiste rechten om deze functie te gebruiken</p>";
-            }
+            } 
         } else {
             header('location: inlog.php');
         }
         ?>
-
     </body>
 </html>

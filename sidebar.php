@@ -26,8 +26,12 @@ include('logcheck.php');
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
                     <form method="post" action="search.php">
-                        <br><input type="text" name="searchstr" placeholder="">
-                        <br><input type="submit" name="search" value="Search">
+                        <div class="form-group list-group-item d-inline-block collapsed">
+                            <input class="form-control" type="text" name="searchstr" placeholder="" required>
+                        </div>
+                        <div class="form-group list-group-item d-inline-block collapsed">
+                            <input class="form-control" type="submit" name="search" value="Search">
+                        </div>
                     </form>
                     <!--<div class="list-group border-0 card text-center text-md-left">-->
                     <div class="row socialbar d-sm-none d-md-block">
@@ -35,7 +39,7 @@ include('logcheck.php');
                          <!--<a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="col-auto fab fa-facebook sicons"></i><i class="col-md-2 col-lg-4 fab fa-twitter sicons"></i> <i class="col-md-4 col-lg-4 fab fa-instagram sicons"></i> <span class="d-none d-md-inline"></span></a>-->
                             <a href="https://www.facebook.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-facebook"></i><span class="d-none d-lg-inline"></span></a>
                             <a href="https://www.twitter.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-twitter"></i><span class="d-none d-lg-inline"></span></a>
-                            <a href="https://www.instagram.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-instagram"></i></i><span class="d-none d-lg-inline"></span></a>
+                            <a href="https://www.instagram.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-instagram"></i><span class="d-none d-lg-inline"></span></a>
                         </div>
                     </div>
                 </div>
