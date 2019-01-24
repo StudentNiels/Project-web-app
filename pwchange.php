@@ -24,14 +24,25 @@
                 if ($email != $email_confirm) {
                     $email_err = "Email komt niet overeen.";
                 } else {
-                    $sql = "UPDATE user SET Email = ? WHERE userID = " . $userId;
+                    $sql = "SELECT email FROM user WHERE email = ?";
                     if ($stmt = mysqli_prepare($conn, $sql)) {
                         mysqli_stmt_bind_param($stmt, "s", $email);
                         if (mysqli_stmt_execute($stmt)) {
-                            $email_result = "Email succesvol veranderd.";
-                        } else {
-                            $email_result = "Something went wrong";
-                        } mysqli_stmt_close($stmt);
+                            mysqli_stmt_store_result($stmt);
+                            if (mysqli_stmt_num_rows($stmt) == 0) {
+                                $sql = "UPDATE user SET Email = ? WHERE userID = " . $userId;
+                                if ($stmt = mysqli_prepare($conn, $sql)) {
+                                    mysqli_stmt_bind_param($stmt, "s", $email);
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        $email_result = "Email succesvol veranderd.";
+                                    } else {
+                                        $email_result = "Something went wrong";
+                                    } mysqli_stmt_close($stmt);
+                                }
+                            } else {
+                                $email_result = "Dit email-adres is al in gebruik.";
+                            }
+                        } else $email_result = "Something went wrong.";
                     }
                 }
             } else {
