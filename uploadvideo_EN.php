@@ -1,6 +1,6 @@
 <?php
 include('conn.php');
-include ('sidebar.php');
+include ('sidebar_EN.php');
 ?>
 <!DOCTYPE html>
 <html>
