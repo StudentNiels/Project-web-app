@@ -26,7 +26,7 @@ include('logcheck.php');
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed uwu" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Uitloggen</span></a>
                     <form method="post" action="search.php">
-                        <i class="offset-sm-1 fas fa-search"></i><span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder=""></p></span>
+                        <i class="offset-sm-0 fas fa-search uwu"></i><span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder=""></p></span>
                     </form>
                     <!--<div class="list-group border-0 card text-center text-md-left">-->
                     <div class="row socialbar d-sm-n2one d-md-block list-group-item d-inline-block collapsed">
