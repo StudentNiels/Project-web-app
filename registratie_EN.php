@@ -32,7 +32,7 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                             mysqli_stmt_store_result($stmt);
                                             if (mysqli_stmt_num_rows($stmt) == 1) {
-                                                $email_err = "Email is already used.";
+                                                $email_err = "Email is already in use.";
                                             } else {
                                                 $email = trim($_POST['reg_email']);
                                             }
@@ -129,7 +129,7 @@
                                     <input type="submit" class="btn btn-primary" value="Submit">
                                 </div>
                                 <p>
-                                    <a href='inlog.php'> Already have an account? Click here </a>
+                                    <a href='inlog_EN.php'> Already have an account? Click here </a>
                                 </p>
                             </form>
                         </div>
