@@ -38,7 +38,7 @@
                     echo "<p>" . $SchoolNaam . "</p>";
                 }
                 if ($_SESSION['docent'] = 1) {
-                    echo"<p>Leraar Privileges toegekend <img src='images/approved.png' alt='goedgekeurd' height='90px' width='105'></p>";
+                    echo"<p>Leraar Privileges toegekend</p>";
                 }
                 echo"</form>";
                 echo"<p><a href='index.php'>Terug</a></p>";
