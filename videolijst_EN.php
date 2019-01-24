@@ -20,11 +20,11 @@
     <body class="bcolor">
         <?php
         include('conn.php');
-        include('sidebar.php');
+        include('sidebar_EN.php');
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-10 col-sm-10 col-xs-11 float-left col-1 pl-0 pr-0">
+                <div class="col-md-9 col-sm-10 col-xs-11 float-left col-1 pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
                             <?php
@@ -62,7 +62,6 @@
                                                                 </div>";
                                                         }
                                                     }
-
                                                     mysqli_stmt_close($stmt);
                                                 } else {
                                                     echo "execution failed";

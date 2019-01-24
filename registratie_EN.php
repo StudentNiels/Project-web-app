@@ -9,7 +9,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
                         <div class="pic-center">
-                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg"></a>
+                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg" alt='logo from i learn flix'></a>
 
                         </div>
                         <hr>
@@ -23,7 +23,7 @@
                             $school = $school_err = $betaal = $betaal_err = "";
                             if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 if (empty(trim($_POST['reg_email']))) {
-                                    $email_err = "Vul een email in.";
+                                    $email_err = "Please enter an email.";
                                 } else {
                                     $sql = "SELECT email FROM " . $Tn . " WHERE email =?";
                                     if ($stmt = mysqli_prepare($conn, $sql)) {
@@ -32,7 +32,7 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                             mysqli_stmt_store_result($stmt);
                                             if (mysqli_stmt_num_rows($stmt) == 1) {
-                                                $email_err = "Email is already used.";
+                                                $email_err = "Email is already in use.";
                                             } else {
                                                 $email = trim($_POST['reg_email']);
                                             }
@@ -61,7 +61,6 @@
                                 } else {
                                     $school = trim($_POST['reg_school']);
                                 }
-
                                 if (empty($email_err) && empty($password_err) && empty($school_err)) {
                                     $sql = "INSERT INTO " . $Tn . " (Email, SchoolId, Wachtwoord, DocentPerms) VALUES ( ?, ?, ?, 0)";
                                     if ($stmt = mysqli_prepare($conn, $sql)) {
@@ -108,7 +107,6 @@
                                         if ($exec == true) {
                                             mysqli_stmt_store_result($stmt1);
                                             mysqli_stmt_bind_result($stmt1, $sId, $sNaam);
-
                                             if (mysqli_stmt_num_rows($stmt1) > 0) {
                                                 echo "<select class='form-control' name='reg_school'>"
                                                 . "<option value='0'>Select your school</option>'";
@@ -121,7 +119,7 @@
                                             }
                                         }
                                     } else {
-                                        echo 'Query ging fout!';
+                                        echo 'Query went wrong!';
                                     }
                                     ?>
                                     <span class="help-block"><?php echo $school_err; ?></span>
@@ -131,7 +129,7 @@
                                     <input type="submit" class="btn btn-primary" value="Submit">
                                 </div>
                                 <p>
-                                    <a href='inlog.php'> Heb je al een account? klik hier </a>
+                                    <a href='inlog_EN.php'> Already have an account? Click here </a>
                                 </p>
                             </form>
                         </div>

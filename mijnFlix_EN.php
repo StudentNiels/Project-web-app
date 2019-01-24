@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>MijnFlix</title>
+        <title>MyFlix</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,44 +18,39 @@
 
         <?php
         include('conn.php');
-        include('sidebar.php');
-        echo"<div id='mijnflix'><h1>MijnFlix</h1>";
+        include('sidebar_EN.php');
+        echo"<div id='mijnflix'><h1>MyFlix</h1>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
-
         if ($stmt = mysqli_prepare($conn, $query)) {
             mysqli_stmt_execute($stmt);
             mysqli_stmt_bind_result($stmt, $Email, $SchoolNaam, $AbonnementID, $Wachtwoord, $DocentPerms);
             mysqli_stmt_store_result($stmt);
             mysqli_stmt_fetch($stmt);
             if (mysqli_stmt_num_rows($stmt) == 0) {
-                echo "Nothing found";
+                echo "nothing found";
             } else {
                 echo "<div class='container-fluid'>";
-                echo "<table>";
                 echo "<h3>Your profile</h3>";
-                echo "<tr><th>Username/Email:</th></tr>";
+                echo "<table>";
+                echo "<tr><th>Username/Email</th></tr>";
                 echo"<tr><td><p>" . $Email . "</p></td></tr>";
-
-                echo "<tr><th>Wachtwoord of Email wijzigen:</th></tr>";
-                echo"<tr><td><p><a href=pwchange.php>Klik hier</a></p></td></tr>";
-
-                echo "<tr><th>School:</th></tr>";
+                echo "<tr><th>Change password or email</th></tr>";
+                echo"<tr><td><p><a href=pwchange_EN.php>Click here</a></p></td></tr>";
+                echo "<tr><th>School</th></tr>";
                 echo "<tr><td><p>" . $SchoolNaam . "</p></td></tr>";
-                if ($DocentPerms === 1) {
+                if ($_SESSION['docent'] === 1) {
                     echo "<tr><th>Privileges</th></tr>";
-                    echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
+                    echo"<td><p>Teacher privileges granted </p></td></tr>";
                 }
                 echo "</table>";
                 echo "</div>";
-
-                if ($DocentPerms === 1) {
-                    echo "<p><a href=uploadvideo.php>Upload een video</a></p>";
-                    echo "<p><a href=videobeheer.php>Beheer je video's</a></p></div>";
+                if ($_SESSION['docent'] === 1) {
+                    echo "<p><a href=uploadvideo_EN.php>Upload a video</a></p>";
+                    echo "<p><a href=videobeheer_EN.php>Manage your videos</a></p></div>";
                 } else {
-                    echo"Indien u een leraar bent en u graag een video wilt uploaden contacteer dan de administratie via admin@email.com</div>";
+                    echo"If you are a teacher and you'd like to upload videos, please contact administration via admin@email.com</div>";
                 }
                 $conn = mysqli_connect("localhost", "root", "");
-
                 mysqli_stmt_close($stmt);
             }
             mysqli_close($conn);
@@ -68,4 +63,3 @@
 
     </body>
 </html>
-

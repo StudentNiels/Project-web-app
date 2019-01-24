@@ -18,7 +18,7 @@
 }
 .videobox {
     width: 23%;
-    height: 280px;
+    height: 300px;
     padding: 2px;
     margin: 1%;
     float: left;
@@ -33,9 +33,11 @@ video {
 }
 .titel {
     font-size: 1.5vw;
+    text-overflow: ellipsis;
 }
 .username {
     font-size: 1vw;
+    text-overflow: ellipsis;
 }
 .vakLink {
     text-decoration: none;
@@ -48,4 +50,5 @@ video {
     color: white;
     float: left;
     text-decoration: none;
+    text-overflow: ellipsis;
 }

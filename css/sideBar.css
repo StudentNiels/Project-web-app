@@ -8,7 +8,7 @@
     min-height: 100vh;
 }
 #sidebar i {
-    margin-right: 6px;
+    margin-right: 0px;
 }
 
 #sidebar .list-group-item {
@@ -32,7 +32,7 @@
   font-family: FontAwesome;
   display: inline;
   text-align: right;
-  padding-left: 5px;
+  padding-left: 0px;
 }
 
 /* open state */
@@ -44,7 +44,7 @@
   font-family: FontAwesome;
   display: inline;
   text-align: right;
-  padding-left: 5px;
+  padding-left: 0px;
 }
 
 /* level 1*/
@@ -164,13 +164,44 @@
 @media (min-width: 1500px){
     .sicons{
     /*margin-left: 20px;*/
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
     }
 }
 @media (max-width: 575px){
     .sicons{
-    padding-left: 10px;
+    padding-left: 0px;
     }
 }
 
+.uwu{
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+.uwu:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.uwu:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+@media screen and (max-height: 300px) {
+	ul {
+		margin-top: 40px;
+	}
+}

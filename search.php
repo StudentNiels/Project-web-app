@@ -25,46 +25,40 @@
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-10 col-sm-11 col-xs-11 float-left col-1 pl-0 pr-0">
+                <div class="col-md-10 col-sm-10 col-xs-11 float-left col-1 pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
                             <?php
-                                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-                            if (isset($_POST['search'])) {
-                                $search = htmlentities($_POST['searchstr']);
-                                $result = array();
-                                $keyword_tokens = explode(' ', $search);
-                                foreach ($keyword_tokens as $keyword) {
-                                    $keyword = mysqli_real_escape_string($conn ,trim($keyword));
-                                    $sql = "SELECT titel FROM video WHERE titel REGEXP 'keyword1|keyword2|keyword3'";
-                                    // query and collect the result to $result
-                                    // before inserting to $result, check if the id exists in $result.
-                                    // if yes, skip.
-                                    print_r($sql);
+                            mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+                            if (!empty($_POST['searchstr'])) {
+                                $searchstr = htmlentities($_POST['searchstr']);
+                                $searchArray = explode(" ", $searchstr);
+                                $query = "";
+                                foreach ($searchArray as $val) {
+                                    $search = mysqli_real_escape_string($conn, trim($val));
+                                    if (!empty($query)) {
+                                        $query = $query . " OR "; // or AND, depends on what you want
+                                    }
+
+                                    $query = $query . "`titel` LIKE '%$search%'";
                                 }
-                                if ($stmt = mysqli_prepare($conn, $sql)) {
-                                    if (mysqli_stmt_execute($stmt)) {
-                                        mysqli_stmt_bind_result($stmt, $vak);
-                                        mysqli_stmt_store_result($stmt);
-                                        if (mysqli_stmt_num_rows($stmt) == 0) {
+
+                                if (!empty($query)) {
+                                    $sql = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE " . $query . " ORDER BY VideoID DESC";
+                                    if ($stmt = mysqli_prepare($conn, $sql)) {
+                                        if (mysqli_stmt_execute($stmt)) {
+                                            mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
+                                            mysqli_stmt_store_result($stmt);
+                                        } if (mysqli_stmt_num_rows($stmt) == 0) {
                                             echo "<div class='vakHeader'>
-                                                    <h2 class='vakTitel'>No results</h2>
+                                                    <h2 class='vakTitel'>Geen Resultaten</h2>
                                                 </div>";
                                         } else {
                                             echo "<div class='vakHeader'>
                                                     <h2 class='vakTitel'>Resultaten</h2>
                                                 </div>";
-
-                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE titel LIKE '%{$search}%' ORDER BY VideoID DESC";
-                                            if ($stmt = mysqli_prepare($conn, $query)) {
-                                                if (mysqli_stmt_execute($stmt) === TRUE) {
-                                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                                    mysqli_stmt_store_result($stmt);
-                                                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                                                        
-                                                    } else {
-                                                        while (mysqli_stmt_fetch($stmt)) {
-                                                            echo "<div class='videobox'>
+                                            while (mysqli_stmt_fetch($stmt)) {
+                                                echo "<div class='videobox'>
                                                                 <div class='video'>
                                                                     <video controls>
                                                                     <source src=" . $locatie . " type='video/mp4'>
@@ -72,21 +66,17 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $titel . "</h4>
-                                                                    <p class='username'>" . $user . "</p>
                                                                 </div>
                                                                 </div>";
-                                                        }
-                                                    }
-
-                                                    mysqli_stmt_close($stmt);
-                                                } else {
-                                                    echo "execution failed";
-                                                }
-                                            } else {
-                                                echo "Could not prepare the statement";
                                             }
                                         }
+
+                                        mysqli_stmt_close($stmt);
+                                    } else {
+                                        echo "execution failed";
                                     }
+                                } else {
+                                    echo "Could not prepare the statement";
                                 }
                             }
                             ?>                

@@ -1,6 +1,6 @@
 <?php
 include('conn.php');
-include ('sidebar.php');
+include ('sidebar_EN.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,22 +25,22 @@ include ('sidebar.php');
             $docentPerms = $_SESSION['docent'];
             if ($docentPerms === 1) {
                 echo '<form method="post" action="uploadvideo.php" enctype="multipart/form-data">
-                        <p>Enter het vak: 
+                        <p>Select the subject: 
                             <select name="vak">
                                 <option value="PHP">PHP</option>
                                 <option value="HTML/CSS">HTML/CSS</option>
                                 <option value="Databases">Databases</option>
+                                <option value="Overige">Other</option>
                             </select></p>
-                        <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
-                        <p>Kies de taal waarin je wilt uploaden: <input type="radio" name="taal" value="(NL)"> Nederlands
-                        <input type="radio" name="taal" value="(EN)"> Engels</p>
+                        <p>Enter the title: <input type="text" name="Titel_entered"/></p>
+                        <p>Select the language in which you upload: <input type="radio" name="taal" value="(NL)"> Nederlands
+                        <input type="radio" name="taal" value="(EN)"> English</p>
                         <input type="file" name="file" accept=".mp4"/>
                         <p><input type="submit" value="Upload" name="but_upload"></p>
                         </form>';
-
                 if (isset($_POST['but_upload'])) {
                     if (empty($_POST['Titel_entered']) || empty($_POST['vak'])) {
-                        echo "<p>Vul alle velden in</p>";
+                        echo "<p>Fill in all fields!</p>";
                     } else {
                         if (isset($_POST['but_upload'])) {
                             $taal = $_POST['taal'];
@@ -53,7 +53,7 @@ include ('sidebar.php');
                             $titelopslag2 = str_replace('/', '', $titelopslag1);
                             $target_location = "videos/" . $titelopslag2 . ".mp4";
                             if (($_FILES['file']['size'] === 0)) {
-                                echo "Kies een video om up te loaden!";
+                                echo "Select a video to upload!";
                             } else {
                                 $SQLString = "SELECT videoId FROM video WHERE titel = '{$titel}'";
                                 if ($r = mysqli_prepare($conn, $SQLString)) {
@@ -76,27 +76,27 @@ include ('sidebar.php');
                                                         . mysqli_error($conn)
                                                         . "</p>";
                                                     } else {
-                                                        echo "<h1>Upload successfully.<h1>";
+                                                        echo "<h1>Upload successfull.<h1>";
                                                     }
                                                 } else {
                                                     echo "could not prepare statment";
                                                 }
                                             } else {
-                                                echo "<p>kan deze video niet uploaden.</p>";
+                                                echo "<p>Can't upload this video.</p>";
                                             }
                                         } else {
-                                            echo "<p>Er bestaat al een video met deze titel, kies alstublieft een andere titel voor uw video.</p>";
+                                            echo "<p>A video with this name already exists, please enter a different title.</p>";
                                         }
                                     }
                                 } else {
-                                    echo "failed to prepare statment";
+                                    echo "failed to prepare statement";
                                 }
                             }
                         }
                     }
                 }
             } else {
-                echo "<p>U heeft niet de juiste rechten om deze functie te gebruiken</p>";
+                echo "<p>You don't have the rights to use this function!</p>";
             } 
         } else {
             header('location: inlog.php');

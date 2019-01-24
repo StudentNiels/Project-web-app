@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -14,13 +14,13 @@
         <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet">
-        <title>I Learn Flix</title>
+		<title>I Learn Flix</title>
     </head>
 
     <body class="bcolor">
         <?php
         include('conn.php');
-        include('sidebar.php');
+        include('sidebar_EN.php');
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
@@ -28,28 +28,31 @@
                     <div class="videos">
                         <div class="vak">
                             <?php
-                            $vakLijst = $_GET['vak'];
-                            $SQLstring = "SELECT Vak FROM video WHERE vak = '{$vakLijst}' GROUP BY Vak";
+                            $SQLstring = "SELECT Vak FROM video GROUP BY Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
                                     mysqli_stmt_bind_result($statement, $vak);
                                     mysqli_stmt_store_result($statement);
+                                    $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
                                         
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
-                                                    <h2 class='vakTitel'>" . $vak . "</h2>
+                                                    <a href='videolijst.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
                                                 </div>";
-                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC";
+                                            echo $vaktitel;
+                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
                                                     mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
+                                                    
                                                     mysqli_stmt_store_result($stmt);
                                                     if (mysqli_stmt_num_rows($stmt) == 0) {
                                                         
                                                     } else {
                                                         while (mysqli_stmt_fetch($stmt)) {
+                                                            $shortTitle = mb_strimwidth($titel, 0, 30, '...');
                                                             echo "<div class='videobox'>
                                                                 <div class='video'>
                                                                     <video controls>
@@ -57,7 +60,7 @@
                                                                     </video>
                                                                 </div>
                                                                 <div class='videoInfo'>
-                                                                    <h4 class='titel'>" . $titel . "</h4>
+                                                                    <h4 class='titel'>" . $shortTitle . "</h4>
                                                                 </div>
                                                                 </div>";
                                                         }

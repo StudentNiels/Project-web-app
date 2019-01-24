@@ -16,7 +16,7 @@
                 <div class="row justify-content-center">
                     <div class="col-sm-12 col-md-9 col-lg-7 mt-auto">
                         <div class="pic-center">
-                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg" alt="logo van I learn flix"></a>
+                            <a><img class="img-fluid"  id="logo" src="images/logoB-01.svg" alt="logo from I learn flix"></a>
 
                         </div>
                         <div class="text-center col-6 mx-auto">
@@ -41,62 +41,10 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie.php'> Heb je nog geen account? Klik dan hier! </a>
+                                    <a href='registratie_EN.php'> Don't have an account? Click here to register! </a>
                                 </p>
                             </form>
 
-<<<<<<< HEAD
-            if(isset($_POST['login_submit'])){
-              // checks
-              if(empty($_POST['login_username'])){
-                echo 'vul een email in';
-              }elseif(empty($_POST['login_password'])){
-                echo 'vul een wachtword in';
-              }else{
-                $TableName = 'user';
-                $username = $_POST["login_username"];
-                $postpw = $_POST['login_password'];
-
-                $SQLstring = 'SELECT user.userId, Wachtwoord, SchoolID, DocentPerms, EindDatum FROM user INNER JOIN abonnement  ON user.userID = `abonnement`.userID WHERE Email = ?';
-                if ($stmt = mysqli_prepare($conn, $SQLstring)) {
-                  mysqli_stmt_bind_param($stmt, 's', $username);
-                  mysqli_stmt_execute($stmt);
-                  mysqli_stmt_bind_result($stmt, $userId, $hash,$schoolid, $docentperms, $abonnement);
-                  mysqli_stmt_store_result($stmt);
-                  mysqli_stmt_fetch($stmt);
-                  if (mysqli_stmt_num_rows($stmt) > 0) {
-                    if(password_verify($postpw,$hash)){
-                      if(strtotime($abonnement) < time()){
-                        echo 'Abonnement is verlopen <br>';
-                        echo $abonnement;
-                      }else{
-                        $_SESSION['loggedin'] = true;
-                        $_SESSION['username'] = $username;
-                        $_SESSION['userId'] = $userId;
-                        $_SESSION['docent'] = $docentperms;
-                        $_SESSION['schoolid'] = $schoolid;
-                        echo 'Abonnement is goed <br>';
-                        echo $abonnement;
-                        echo '<br>';
-                        header("Location: index.php");
-                      }
-                    }else{
-                      echo 'Login info incorrect';
-                    }
-                  }else{
-                    echo 'Login info incorrect';
-                  }
-                  mysqli_stmt_close($stmt);
-                  mysqli_close($conn);
-                }else{
-                  echo 'prepare mislukt';
-                }
-              }
-            }
-
-            ?>
-          </div>
-=======
                             <?php
                             session_start();
                             if (isset($_SESSION['loggedin'])) {
@@ -104,16 +52,16 @@
                             }
                             include('conn.php');
                             if (isset($_GET['reg'])) {
-                                echo 'Registratie succesvol';
+                                echo 'Registration succesfull';
                             } elseif (isset($_GET['log'])) {
-                                echo 'Log in voordat je verder gaat!';
+                                echo 'Log in before you continue!';
                             }
                             if (isset($_POST['login_submit'])) {
                                 // checks
                                 if (empty($_POST['login_username'])) {
-                                    echo 'vul een email in';
+                                    echo 'Enter an email';
                                 } elseif (empty($_POST['login_password'])) {
-                                    echo 'vul een wachtwoord in';
+                                    echo 'Enter a password';
                                 } else {
                                     $TableName = 'user';
                                     $username = $_POST["login_username"];
@@ -126,7 +74,7 @@
                                         mysqli_stmt_store_result($stmt);
                                         mysqli_stmt_fetch($stmt);
                                         if (strtotime($abonnement) < time()) {
-                                            echo 'Abonnement is verlopen <br>';
+                                            echo 'Subscription has expired <br>';
                                             echo $abonnement;
                                         } else {
                                             if (mysqli_stmt_num_rows($stmt) > 0) {
@@ -136,7 +84,7 @@
                                                     $_SESSION['userId'] = $userId;
                                                     $_SESSION['docent'] = $docentperms;
                                                     $_SESSION['schoolid'] = $schoolid;
-                                                    echo 'Abonnement is goed <br>';
+                                                    echo 'Subscription has been approved <br>';
                                                     echo $abonnement;
                                                     echo '<br>';
                                                     header("Location: index.php");
@@ -150,7 +98,7 @@
                                         mysqli_stmt_close($stmt);
                                         mysqli_close($conn);
                                     } else {
-                                        echo 'Prepare mislukt';
+                                        echo 'Prepare failed';
                                     }
                                 }
                             }
@@ -159,6 +107,5 @@
                     </div>
                 </div>
             </div>
->>>>>>> 163f84137c348d17434289225389a011d8de8c89
         </div>
     </body>
