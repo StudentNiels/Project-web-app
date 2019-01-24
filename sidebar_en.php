@@ -20,8 +20,8 @@
             <div class="col-md-2 col-sm-1 float-left col-1 pl-0 pr-0 collapse width show logobg"  id="sidebar">
                 <a><img class="img-fluid" id="logo" src="images/logoB-01.svg"></a>
                 <div class="list-group border-0 card text-center text-md-left">
-                    <a href="index.php" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
-                    <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
+                    <a href="index_EN.php" class="list-group-item d-inline-block collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
+                    <a href="mijnFlix_EN.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Log Out</span></a>
                     <form method="post" action="search.php">
                         Search<br><input type="text" name="searchstr" placeholder="">
