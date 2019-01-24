@@ -58,7 +58,6 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $titel . "</h4>
-                                                                    <p class='username'>" . $user . "</p>
                                                                 </div>
                                                                 </div>";
                                                         }
