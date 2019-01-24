@@ -17,8 +17,8 @@
     <body>
         
         <?php
-        include('sidebar.php');
         include('conn.php');
+        include('sidebar.php');
         echo"<h2>MijnFlix</h2>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
 
@@ -44,7 +44,8 @@
                 echo"<p><a href='index.php'>Terug</a></p>";
 
                 if ($_SESSION['docent'] === 1) {
-                    echo "<p><a href=uploadvideo.php>Upload a video</a></p>";
+                    echo "<p><a href=uploadvideo.php>Upload een video</a></p>";
+                    echo "<p><a href=videobeheer.php>beheer je video's</a></p>";
                 } else {
                     echo"Indien u een leraar bent en u graag een video wil uploaden contacteer dan de administratie via admin@email.com";
                 }
