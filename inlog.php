@@ -60,8 +60,6 @@
               echo 'Log in voordat je verder gaat!';
             }
 
-
-
             if(isset($_POST['login_submit'])){
               // checks
               if(empty($_POST['login_username'])){
@@ -80,12 +78,12 @@
                   mysqli_stmt_bind_result($stmt, $userId, $hash,$schoolid, $docentperms, $abonnement);
                   mysqli_stmt_store_result($stmt);
                   mysqli_stmt_fetch($stmt);
-                  if(strtotime($abonnement) < time()){
-                    echo 'Abonnement is verlopen <br>';
-                    echo $abonnement;
-                  }else{
-                    if (mysqli_stmt_num_rows($stmt) > 0) {
-                      if(password_verify($postpw,$hash)){
+                  if (mysqli_stmt_num_rows($stmt) > 0) {
+                    if(password_verify($postpw,$hash)){
+                      if(strtotime($abonnement) < time()){
+                        echo 'Abonnement is verlopen <br>';
+                        echo $abonnement;
+                      }else{
                         $_SESSION['loggedin'] = true;
                         $_SESSION['username'] = $username;
                         $_SESSION['userId'] = $userId;
@@ -95,12 +93,12 @@
                         echo $abonnement;
                         echo '<br>';
                         header("Location: index.php");
-                      }else{
-                        print_r($postpw);
                       }
                     }else{
                       echo 'Login info incorrect';
                     }
+                  }else{
+                    echo 'Login info incorrect';
                   }
                   mysqli_stmt_close($stmt);
                   mysqli_close($conn);
