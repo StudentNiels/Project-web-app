@@ -1,3 +1,4 @@
+<?php include('logcheck.php'); ?>
 <!DOCTYPE html>
 <html>
 

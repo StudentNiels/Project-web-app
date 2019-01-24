@@ -12,13 +12,12 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    
+
     </head>
     <body>
-        
+
         <?php
         include('sidebar.php');
-        include 'logcheck.php';
         include('conn.php');
         echo"<h2>MijnFlix</h2>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
@@ -64,4 +63,3 @@
 
     </body>
 </html>
-
