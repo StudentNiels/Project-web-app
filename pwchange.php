@@ -8,7 +8,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <title></title>
     </head>
-    <body style="background-color: #333; color: white;">
+    <body style="background-color: #202534; color: white;">
 
         <?php
         include('conn.php');
