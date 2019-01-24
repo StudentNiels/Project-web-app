@@ -32,16 +32,17 @@
                 echo "<div class='container-fluid'>";
                 echo "<h3>Your profile</h3>";
                 echo "<table>";
-                echo "<tr><th>username</th>";
-                echo "<th>wachtwoord</th>";
-                echo "<th>school</th>";
-                echo "<th>privileges</th></tr>";
-                echo"<tr><td><p>" . $_SESSION['username'] . "</p></td>";
-
-                echo"<td><p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p></td>";
+                echo "<tr><th>username</th></tr>";
+                echo"<tr><td><p>" . $_SESSION['username'] . "</p></td></tr>";
+                
+                echo "<tr><th>wachtwoord</th></tr>";
+                echo"<tr><td><p>Wachtwoord wijzigen <a href=mijnFlix.php>edit</a></p></td></tr>";
+                
+                echo "<tr><th>school</th></tr>";
                 while (mysqli_stmt_fetch($stmt1)) {
-                    echo "<td><p>" . $SchoolNaam . "</p></td>";
-                }
+                    echo "<tr><td><p>" . $SchoolNaam . "</p></td></tr>";
+                echo "<tr><th>privileges</th></tr>";
+                 }
                 if ($_SESSION['docent'] === 1) {
                     echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
                 }

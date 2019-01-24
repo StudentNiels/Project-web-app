@@ -19,7 +19,7 @@ include('logcheck.php');
 
     <div class="container-fluid">
         <div class="row d-flex d-md-block flex-nowrap wrapper">
-            <div class="col-md-2 col-sm-3 float-left col-3 pl-0 pr-0 collapse width show logobg"  id="sidebar">
+            <div class="col-md-2 col-sm-3 col-lg-3 float-left col-3 pl-0 pr-0 collapse width show logobg"  id="sidebar">
                 <a><img class="img-fluid" id="logo" src="images/logoB-01.svg"></a>
                 <div class="list-group border-0 card text-center text-md-left">
                     <a href="index.php" class="list-group-item d-inline-block collapsed"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
@@ -31,7 +31,7 @@ include('logcheck.php');
                     </form>
                     <!--<div class="list-group border-0 card text-center text-md-left">-->
                     <div class="row socialbar d-sm-none d-md-block">
-                        <div class="col-sm-12 offset-sm-1">
+                        <div class="col-sm-12 col-md-12 col-lg-12 offset-sm-1">
                          <!--<a href="#" class="list-group-item d-inline-block collapsed" data-parent="#sidebar"><i class="col-auto fab fa-facebook sicons"></i><i class="col-md-2 col-lg-4 fab fa-twitter sicons"></i> <i class="col-md-4 col-lg-4 fab fa-instagram sicons"></i> <span class="d-none d-md-inline"></span></a>-->
                             <a href="https://www.facebook.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-facebook"></i><span class="d-none d-lg-inline"></span></a>
                             <a href="https://www.twitter.com" target="_BLANK" class="list-group-item d-inline-block collapsed sicons" data-parent="#sidebar"><i class="col-12 fab fa-twitter"></i><span class="d-none d-lg-inline"></span></a>
