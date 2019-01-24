@@ -8,7 +8,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/sideBar.css" rel="stylesheet">
         <link href="css/videoshow.css" rel="stylesheet">
-        
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -29,14 +29,24 @@
                     <div class="videos">
                         <div class="vak">
                             <?php
+                                    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                             if (isset($_POST['search'])) {
                                 $search = htmlentities($_POST['searchstr']);
-                                $SQLstring = "SELECT Vak FROM video WHERE titel LIKE '%{$search}%'";
-                                if ($statement = mysqli_prepare($conn, $SQLstring)) {
-                                    if (mysqli_stmt_execute($statement) === TRUE) {
-                                        mysqli_stmt_bind_result($statement, $vak);
-                                        mysqli_stmt_store_result($statement);
-                                        if (mysqli_stmt_num_rows($statement) == 0) {
+                                $result = array();
+                                $keyword_tokens = explode(' ', $search);
+                                foreach ($keyword_tokens as $keyword) {
+                                    $keyword = mysqli_real_escape_string($conn ,trim($keyword));
+                                    $sql = "SELECT titel FROM video WHERE titel REGEXP 'keyword1|keyword2|keyword3'";
+                                    // query and collect the result to $result
+                                    // before inserting to $result, check if the id exists in $result.
+                                    // if yes, skip.
+                                    print_r($sql);
+                                }
+                                if ($stmt = mysqli_prepare($conn, $sql)) {
+                                    if (mysqli_stmt_execute($stmt)) {
+                                        mysqli_stmt_bind_result($stmt, $vak);
+                                        mysqli_stmt_store_result($stmt);
+                                        if (mysqli_stmt_num_rows($stmt) == 0) {
                                             echo "<div class='vakHeader'>
                                                     <h2 class='vakTitel'>No results</h2>
                                                 </div>";
