@@ -19,7 +19,6 @@
     <body>
         <?php
         include('conn.php');
-        include('logcheck.php');
         include('sidebar.php');
         ?>
         <div class="container-fluid">
@@ -35,7 +34,7 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-                                        
+
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
@@ -46,10 +45,10 @@
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
                                                     mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
-                                                    
+
                                                     mysqli_stmt_store_result($stmt);
                                                     if (mysqli_stmt_num_rows($stmt) == 0) {
-                                                        
+
                                                     } else {
                                                         while (mysqli_stmt_fetch($stmt)) {
                                                             $shortTitle = mb_strimwidth($titel, 0, 30, '...');
@@ -78,7 +77,7 @@
                                     }
                                 }
                             }
-                            ?>               
+                            ?>
                         </div>
                     </div>
                 </div>
