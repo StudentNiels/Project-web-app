@@ -41,9 +41,10 @@
                 echo "<tr><th>school</th></tr>";
                 while (mysqli_stmt_fetch($stmt1)) {
                     echo "<tr><td><p>" . $SchoolNaam . "</p></td></tr>";
-                echo "<tr><th>privileges</th></tr>";
+                
                  }
                 if ($_SESSION['docent'] === 1) {
+                    echo "<tr><th>privileges</th></tr>";
                     echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
                 }
                 echo "</table>";
