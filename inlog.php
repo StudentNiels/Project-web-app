@@ -22,17 +22,17 @@
                         <div class="text-center col-6 mx-auto">
 
 
-                            <h3> login </h3>
+                            <h3> Login </h3>
                             <form method="post">
 
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='email' name='login_username' placeholder="username">
+                                        <input class="form-control" type='email' name='login_username' placeholder="Enter your email">
                                     </p>
                                 </div>
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='password' name='login_password' placeholder="password">
+                                        <input class="form-control" type='password' name='login_password' placeholder="Enter your password">
                                     </p>
                                 </div>
                                 <div class="form-group">
@@ -41,7 +41,7 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie.php'> Heb je nog geen account? klik hier </a>
+                                    <a href='registratie.php'> Heb je nog geen account? Klik dan hier! </a>
                                 </p>
                             </form>
 
@@ -52,7 +52,7 @@
                             }
                             include('conn.php');
                             if (isset($_GET['reg'])) {
-                                echo 'registratie succesvol';
+                                echo 'Registratie succesvol';
                             } elseif (isset($_GET['log'])) {
                                 echo 'Log in voordat je verder gaat!';
                             }
@@ -61,7 +61,7 @@
                                 if (empty($_POST['login_username'])) {
                                     echo 'vul een email in';
                                 } elseif (empty($_POST['login_password'])) {
-                                    echo 'vul een wachtword in';
+                                    echo 'vul een wachtwoord in';
                                 } else {
                                     $TableName = 'user';
                                     $username = $_POST["login_username"];
@@ -98,7 +98,7 @@
                                         mysqli_stmt_close($stmt);
                                         mysqli_close($conn);
                                     } else {
-                                        echo 'prepare mislukt';
+                                        echo 'Prepare mislukt';
                                     }
                                 }
                             }

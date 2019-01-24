@@ -33,7 +33,6 @@
                                             mysqli_stmt_store_result($stmt);
                                             if (mysqli_stmt_num_rows($stmt) == 1) {
                                                 $email_err = "Email is already used.";
-                                                echo $email_err;
                                             } else {
                                                 $email = trim($_POST['reg_email']);
                                             }
