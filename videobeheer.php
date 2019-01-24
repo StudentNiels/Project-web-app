@@ -49,7 +49,7 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $titel . "</h4>
-                                                                    <a href='videodelete.php?id=" . $videoid . "'<p class='username'>Delete this video</p></a>
+                                                                    <a href='videodelete.php?id=" . $videoid . "' class='vakLink'><p class='username'>Delete this video</p></a>
                                                                 </div>
                                                                 </div>";
                                         }
