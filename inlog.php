@@ -80,7 +80,7 @@
                                         mysqli_stmt_bind_result($stmt, $userId, $hash, $schoolid, $docentperms, $abonnement);
                                         mysqli_stmt_store_result($stmt);
                                         mysqli_stmt_fetch($stmt);
-                                        if (strtotime($abbonment) > time()) {
+                                        if (strtotime($abonnement) > time()) {
                                             echo 'Abonnement is verlopen';
                                         } else {
                                             if (mysqli_stmt_num_rows($stmt) > 0) {
