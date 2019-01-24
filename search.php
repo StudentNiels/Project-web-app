@@ -25,12 +25,12 @@
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-9 col-sm-10 col-xs-11 float-left col-1 pl-0 pr-0">
+                <div class="col-md-10 col-sm-10 col-xs-11 float-left col-1 pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
                             <?php
                             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-                            if (isset($_POST['search'])) {
+                            if (!empty($_POST['searchstr'])) {
                                 $searchstr = htmlentities($_POST['searchstr']);
                                 $searchArray = explode(" ", $searchstr);
                                 $query = "";
