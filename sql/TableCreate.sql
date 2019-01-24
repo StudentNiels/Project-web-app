@@ -1,7 +1,7 @@
 CREATE TABLE `School` (
 	SchoolID INT AUTO_INCREMENT,
 	SchoolNaam	VARCHAR(50) NOT NULL,
-	CONSTRAINT pk_school 
+	CONSTRAINT pk_school
 		PRIMARY KEY(SchoolID)
 );
 
@@ -85,4 +85,9 @@ CREATE TABLE `VideoLijst` (
 	CONSTRAINT fk_user_videolijst
 		FOREIGN KEY(userID)
 		REFERENCES User(userID)
+);
+
+CREATE TABLE `Favorieten` (
+	userID INT,
+	VideoID INT
 );

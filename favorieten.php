@@ -28,14 +28,20 @@
                     <div class="videos">
                         <div class="vak">
                             <?php
-                            $SQLstring = "SELECT Vak FROM video GROUP BY Vak";
+                            $SQLstring = "
+                            SELECT Vak
+                            FROM video
+                            INNER JOIN favorieten
+                            ON favorieten.videoID = video.videoID
+                            WHERE video.userID = " . $_SESSION['userId'] . "
+                            GROUP BY Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
                                     mysqli_stmt_bind_result($statement, $vak);
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-
+                                      echo 'geen favorieten';
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
@@ -62,7 +68,7 @@
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $shortTitle . "</h4>
                                                                     <p class='username'>" . $user . "</p>
-                                                                    <a href='addfav.php?id=" . $videoId . "&cat=add'>Favoriet</a>
+                                                                    <a href='addfav.php?id=" . $videoId . "&cat=del'>Verwijder</a>
                                                                 </div>
                                                                 </div>";
                                                         }
