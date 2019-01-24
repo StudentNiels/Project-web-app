@@ -28,7 +28,7 @@
             mysqli_stmt_store_result($stmt);
             mysqli_stmt_fetch($stmt);
             if (mysqli_stmt_num_rows($stmt) == 0) {
-                echo "nothing found";
+                echo "Nothing found";
             } else {
                 echo "<div class='container-fluid'>";
                 echo "<h3>Your profile</h3>";
@@ -41,14 +41,14 @@
 
                 echo "<tr><th>School</th></tr>";
                 echo "<tr><td><p>" . $SchoolNaam . "</p></td></tr>";
-                if ($_SESSION['docent'] === 1) {
+                if ($DocentPerms === 1) {
                     echo "<tr><th>Privileges</th></tr>";
                     echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
                 }
                 echo "</table>";
                 echo "</div>";
 
-                if ($_SESSION['docent'] === 1) {
+                if ($DocentPerms === 1) {
                     echo "<p><a href=uploadvideo.php>Upload een video</a></p>";
                     echo "<p><a href=videobeheer.php>Beheer je video's</a></p></div>";
                 } else {

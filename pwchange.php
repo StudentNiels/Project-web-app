@@ -35,6 +35,7 @@
                                     mysqli_stmt_bind_param($stmt, "s", $email);
                                     if (mysqli_stmt_execute($stmt)) {
                                         $email_result = "Email succesvol veranderd.";
+                                        $_SESSION['username'] = $email;
                                     } else {
                                         $email_result = "Something went wrong";
                                     } mysqli_stmt_close($stmt);

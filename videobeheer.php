@@ -32,9 +32,10 @@
                             echo "<div class='vakHeader'>
                                                     <h2 class='vakTitel'>Uw Video's</h2>
                                                 </div>";
-                            $query = "SELECT videoID, Locatie, Titel FROM video JOIN user ON video.userID = user.userID WHERE email = '{$email}' ORDER BY VideoID DESC";
+                            $query = "SELECT videoID, Locatie, Titel FROM video JOIN user ON video.userID = user.userID WHERE email = ? ORDER BY VideoID DESC";
                             if ($stmt = mysqli_prepare($conn, $query)) {
-                                if (mysqli_stmt_execute($stmt) === TRUE) {
+                                mysqli_stmt_bind_param($stmt, "s", $email);
+                                if (mysqli_stmt_execute($stmt)) {
                                     mysqli_stmt_bind_result($stmt,$videoid, $locatie, $titel);
                                     mysqli_stmt_store_result($stmt);
                                     if (mysqli_stmt_num_rows($stmt) == 0) {
