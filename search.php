@@ -45,7 +45,6 @@
 
                                 if (!empty($query)) {
                                     $sql = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE " . $query . " ORDER BY VideoID DESC";
-                                    echo $sql;
                                     if ($stmt = mysqli_prepare($conn, $sql)) {
                                         if (mysqli_stmt_execute($stmt)) {
                                             mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
