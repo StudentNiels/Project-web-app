@@ -18,7 +18,6 @@
         
         <?php
         include('sidebar.php');
-        session_start();
         include('conn.php');
         echo"<h2>MijnFlix</h2>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";

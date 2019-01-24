@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include('logcheck.php');
+?>
 <html>
 
 <head>
