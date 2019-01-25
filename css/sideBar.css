@@ -28,40 +28,40 @@
 
 /* closed state */
 #sidebar .list-group .list-group-item[aria-expanded="false"]::after {
-  /*content: " \f0d7";*/
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 0px;
+    /*content: " \f0d7";*/
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 0px;
 }
 
 /* open state */
 #sidebar .list-group .list-group-item[aria-expanded="true"] {
-  background-color: #222;
+    background-color: #222;
 }
 #sidebar .list-group .list-group-item[aria-expanded="true"]::after {
-  content: " \f0da";
-  font-family: FontAwesome;
-  display: inline;
-  text-align: right;
-  padding-left: 0px;
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 0px;
 }
 
 /* level 1*/
 #sidebar .list-group .collapse .list-group-item,
 #sidebar .list-group .collapsing .list-group-item  {
-  padding-left: 20px;
+    padding-left: 20px;
 }
 
 /* level 2*/
 #sidebar .list-group .collapse > .collapse .list-group-item,
 #sidebar .list-group .collapse > .collapsing .list-group-item {
-  padding-left: 30px;
+    padding-left: 30px;
 }
 
 /* level 3*/
 #sidebar .list-group .collapse > .collapse > .collapse .list-group-item {
-  padding-left: 40px;
+    padding-left: 40px;
 }
 
 @media (max-width:768px) {
@@ -74,13 +74,13 @@
         transform: translateX(-45px);
         position: fixed;
     }
-    
+
     #sidebar.show {
         transform: translateX(0);
     }
 
     #sidebar::-webkit-scrollbar{ width: 0px; }
-    
+
     #sidebar, #sidebar .list-group {
         min-width: 35px;
         overflow: visible;
@@ -102,106 +102,122 @@
         display:none;
     }
     #logo{
-    margin: 0px;   
-    background-color: #333;
+        margin: 0px;   
+        background-color: #333;
     }
-     .sicons{
-    margin-left: 0px;
+    .sicons{
+        margin-left: 0px;
     }
 }
 
 .collapse.show {
-  visibility: visible;
+    visibility: visible;
 }
 .collapsing {
-  visibility: visible;
-  height: 0;
-  -webkit-transition-property: height, visibility;
-  transition-property: height, visibility;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+    visibility: visible;
+    height: 0;
+    -webkit-transition-property: height, visibility;
+    transition-property: height, visibility;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 .collapsing.width {
-  -webkit-transition-property: width, visibility;
-  transition-property: width, visibility;
-  width: 0;
-  height: 100%;
-  -webkit-transition-timing-function: ease-out;
-  transition-timing-function: ease-out;
+    -webkit-transition-property: width, visibility;
+    transition-property: width, visibility;
+    width: 0;
+    height: 100%;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
 }
 .logobg{
     background-color: #333;
     height: 100%;
 }
-.socialbar{
-    position: fixed;
-    bottom: 0px;
-    width: inherit;
-}
+
 .sicons{
     border: none;
-   background-color: #ccc !important;
+    background-color: #ccc !important;
     background: rgba(1, 1, 1 , .01) !important;
 }
-@media (min-width: 768px){
+@media (max-width: 768px){
     #logo{
-    margin: 10px;   
-    background-color: #333;
+        margin: 10px;   
+        background-color: #333;
     }
     .sicons{
-    /*margin-left: 5    px;*/
-    padding-left: 0px;
-    padding-right: 0px;
+        /*margin-left: 5    px;*/
+        padding-left: 2px;
+        padding-right: 0px;
+    }
+    .socialbar{
+        padding-left: 5px;
+        margin-left: 0px;
+    }
+}
+@media (max-width: 992px){
+    .sicons{
+        /*margin-left: 16px;*/
+        padding-left: 5px;
+        padding-right: 0px;
+    }
+    .siconwrap{
+        /*margin-left: 16px;*/
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .socialbar{
+        padding-left: 0px;
     }
 }
 @media (min-width: 992px){
     .sicons{
-    /*margin-left: 16px;*/
-    padding-left: 0px;
-    padding-right: 0px;
+        /*margin-left: 20px;*/
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .socialbar{
+        margin-left: 0px;
     }
 }
 @media (min-width: 1500px){
     .sicons{
-    /*margin-left: 20px;*/
-    padding-left: 0px;
-    padding-right: 0px;
+        /*margin-left: 20px;*/
+        padding-left: 10px;
+        padding-right: 10px;
     }
-}
-@media (max-width: 575px){
-    .sicons{
-    padding-left: 0px;
+    .socialbar{
+        margin-left: 20px;
     }
 }
 
 .uwu{
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.15em;
-  
-  display: inline-block;
-  padding: 15px 20px;
-  position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
 }
 .uwu:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #fff;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
 }
 .uwu:hover:after { 
-  width: 100%; 
-  left: 0; 
+    width: 100%; 
+    left: 0; 
 }
 @media screen and (max-height: 300px) {
-	ul {
-		margin-top: 40px;
-	}
+    ul {
+        margin-top: 40px;
+    }
 }
