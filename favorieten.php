@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
     <head>
         <meta charset="utf-8">
@@ -53,10 +53,8 @@
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
                                                     mysqli_stmt_bind_result($stmt, $locatie, $titel, $user, $videoId);
-
                                                     mysqli_stmt_store_result($stmt);
                                                     if (mysqli_stmt_num_rows($stmt) == 0) {
-
                                                     } else {
                                                         while (mysqli_stmt_fetch($stmt)) {
                                                             $shortTitle = mb_strimwidth($titel, 0, 30, '...');
