@@ -28,6 +28,12 @@
                 <div class="col-md-10 col-sm-11 col-xs-11 float-left pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
+                            <form class="form-inline" method="POST" action="searchpage.php">
+                                            <i class="fas fa-search" aria-hidden="true"></i>
+                                            <p><br>
+                                                <input class="form-control form-control-sm ml-3 w-100" type="text" name="searchstr" placeholder="Search"  aria-label="Search">
+                                            </p>
+                                        </form>
                             <?php
                             mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                             if (!empty($_POST['searchstr'])) {

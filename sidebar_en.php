@@ -23,10 +23,7 @@ include('logcheck.php');
                 <img class="img-fluid" id="logo" src="images/logoB-01.svg" alt='Logo from I learn flix'>
                 <div class="list-group border-0 card text-center text-md-left">
 
-                    <form method="POST" action="search_EN.php" class="form-inline list-group-item d-inline-block collapsed" >
-                        <i class="fas fa-search" aria-hidden="true"></i>
-                        <input class="form-control- form-control-sm ml-3 w-50 d-sm-none d-md-inline search"  type="text" aria-label="Search" name="searchstr">
-                    </form>
+                    <a href="search.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-search"></i> <span class="d-none d-md-inline">Search</span></a>
                     <a href="index_EN.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix_EN.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MyFlix</span></a>
                     <a href="favorieten_EN.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-asterisk"></i> <span class="d-none d-md-inline">Favorites</span></a>

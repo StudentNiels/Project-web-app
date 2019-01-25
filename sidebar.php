@@ -21,7 +21,7 @@ include('logcheck.php');
             <div class="col-md-2 col-sm-2 col-xs-1 col-lg-2 float-left col-2 pl-0 pr-0 collapse width show logobg" id="sidebar">
                 <img class="img-fluid" id="logo" src="images/logoB-01.svg">         
                 <div class="list-group border-0 card text-center text-md-left">
-                    <a href="searchpage.php" class="form-inline list-group-item d-inline-block collapsed"><i class="fas fa-search uwu" aria-hidden="true"></i>
+                    <a href="search.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-search"></i> <span class="d-none d-md-inline">Search</span></a>
                     <a href="index.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
                     <a href="favorieten.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-asterisk"></i> <span class="d-none d-md-inline">Favorieten</span></a>
