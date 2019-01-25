@@ -27,12 +27,12 @@
 
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='email' name='login_username' placeholder="email..">
+                                        <input class="form-control" type='email' name='login_username' placeholder="Voer je email in">
                                     </p>
                                 </div>
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='password' name='login_password' placeholder="wachtwoord..">
+                                        <input class="form-control" type='password' name='login_password' placeholder="Voer je wachtwoord in">
                                     </p>
                                 </div>
                                 <div class="form-group">
@@ -41,72 +41,77 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie.php'> Nog geen account? klik hier </a><br>
-                                    <a href='inlog_EN.php'> Speak English? Click here </a>
+                                    <a href='registratie.php'> Heb je nog geen account? Klik dan hier! </a><br>
+                                    <a href='inlog_en.php'> Are you english? click here </a>
+
                                 </p>
                             </form>
 
-                            <?php
-                            session_start();
-                            if (isset($_SESSION['loggedin'])) {
-                                header('Location: index.php');
-                            }
-                            include('conn.php');
-                            if (isset($_GET['reg'])) {
-                                echo 'Registratie gelukt!';
-                            } elseif (isset($_GET['log'])) {
-                                echo 'Log in voordat je verder gaat!';
-                            }
-                            if (isset($_POST['login_submit'])) {
-                                // checks
-                                if (empty($_POST['login_username'])) {
-                                    echo 'Voer een email in';
-                                } elseif (empty($_POST['login_password'])) {
-                                    echo 'Voer een wachtwoord in';
-                                } else {
-                                    $TableName = 'user';
-                                    $username = $_POST["login_username"];
-                                    $postpw = $_POST['login_password'];
-                                    $SQLstring = 'SELECT user.userId, Wachtwoord, SchoolID, DocentPerms, EindDatum FROM user INNER JOIN abonnement  ON user.userID = `abonnement`.userID WHERE Email = ?';
-                                    if ($stmt = mysqli_prepare($conn, $SQLstring)) {
-                                        mysqli_stmt_bind_param($stmt, 's', $username);
-                                        mysqli_stmt_execute($stmt);
-                                        mysqli_stmt_bind_result($stmt, $userId, $hash, $schoolid, $docentperms, $abonnement);
-                                        mysqli_stmt_store_result($stmt);
-                                        mysqli_stmt_fetch($stmt);
-                                        if (strtotime($abonnement) < time()) {
-                                            echo 'abonnement is verlopen <br>';
-                                            echo $abonnement;
-                                        } else {
-                                            if (mysqli_stmt_num_rows($stmt) > 0) {
-                                                if (password_verify($postpw, $hash)) {
-                                                    $_SESSION['loggedin'] = true;
-                                                    $_SESSION['username'] = $username;
-                                                    $_SESSION['userId'] = $userId;
-                                                    $_SESSION['docent'] = $docentperms;
-                                                    $_SESSION['schoolid'] = $schoolid;
-                                                    echo 'Abonnement is goedgekeurd <br>';
-                                                    echo $abonnement;
-                                                    echo '<br>';
-                                                    header("Location: index.php");
-                                                } else {
-                                                    print_r($postpw);
-                                                }
-                                            } else {
-                                                echo 'Login info incorrect';
-                                            }
-                                        }
-                                        mysqli_stmt_close($stmt);
-                                        mysqli_close($conn);
+
+                        </div>
+
+                        <?php
+                        session_start();
+                        if (isset($_SESSION['loggedin'])) {
+                            header('Location: index.php');
+                        }
+                        include('conn.php');
+                        if (isset($_GET['reg'])) {
+                            echo 'Registratie succesvol';
+                        } elseif (isset($_GET['log'])) {
+                            echo '<div class="text-center col-6 mx-auto">Log in voordat je verder gaat!</div>';
+                        }
+                        if (isset($_POST['login_submit'])) {
+                            // checks
+                            if (empty($_POST['login_username'])) {
+                                echo 'vul een email in';
+                            } elseif (empty($_POST['login_password'])) {
+                                echo 'vul een wachtwoord in';
+                            } else {
+                                $TableName = 'user';
+                                $username = $_POST["login_username"];
+                                $postpw = $_POST['login_password'];
+                                $SQLstring = 'SELECT user.userId, Wachtwoord, SchoolID, DocentPerms, EindDatum FROM user INNER JOIN abonnement  ON user.userID = `abonnement`.userID WHERE Email = ?';
+                                if ($stmt = mysqli_prepare($conn, $SQLstring)) {
+                                    mysqli_stmt_bind_param($stmt, 's', $username);
+                                    mysqli_stmt_execute($stmt);
+                                    mysqli_stmt_bind_result($stmt, $userId, $hash, $schoolid, $docentperms, $abonnement);
+                                    mysqli_stmt_store_result($stmt);
+                                    mysqli_stmt_fetch($stmt);
+                                    if (strtotime($abonnement) < time()) {
+                                        echo 'Abonnement is verlopen <br>';
+                                        echo $abonnement;
                                     } else {
-                                        echo 'Prepare failed';
+                                        if (mysqli_stmt_num_rows($stmt) > 0) {
+                                            if (password_verify($postpw, $hash)) {
+                                                $_SESSION['loggedin'] = true;
+                                                $_SESSION['username'] = $username;
+                                                $_SESSION['userId'] = $userId;
+                                                $_SESSION['docent'] = $docentperms;
+                                                $_SESSION['schoolid'] = $schoolid;
+                                                echo 'Abonnement is goed <br>';
+                                                echo $abonnement;
+                                                echo '<br>';
+                                                header("Location: index.php");
+                                            } else {
+                                                print_r($postpw);
+                                            }
+                                        } else {
+                                            echo 'Login info incorrect';
+                                        }
                                     }
+                                    mysqli_stmt_close($stmt);
+                                    mysqli_close($conn);
+                                } else {
+                                    echo 'Prepare mislukt';
                                 }
                             }
-                            ?>
-                        </div>
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
+
+
     </body>
