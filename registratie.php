@@ -32,19 +32,19 @@
                                         if (mysqli_stmt_execute($stmt)) {
                                             mysqli_stmt_store_result($stmt);
                                             if (mysqli_stmt_num_rows($stmt) == 1) {
-                                                $email_err = "Email is already used.";
+                                                $email_err = "Email is al in gebruik.";
                                             } else {
                                                 $email = trim($_POST['reg_email']);
                                             }
                                         } else {
-                                            echo "Something went wrong.";
+                                            echo "Er ging iets mis.";
                                         }
                                     }
                                 }
                                 if (empty(trim($_POST['reg_password']))) {
-                                    $password_err = "Fill in a password.";
+                                    $password_err = "Vul een nieuw wachtwoord in.";
                                 } elseif (strlen(trim($_POST["reg_password"])) < 6) {
-                                    $password_err = "Wachtwoord moet 6 characters lang zijn.";
+                                    $password_err = "Wachtwoord moet minstens 6 karakters lang zijn.";
                                 } else {
                                     $password = trim($_POST['reg_password']);
                                 }
@@ -99,7 +99,7 @@
                                     <span class="help-block"><?php echo $password_confirm_err; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>Select your school</label>
+                                    <label>Selecteer je school</label>
                                     <?php
                                     $TableName2 = 'School';
                                     $SQLstring = "SELECT SchoolId, SchoolNaam FROM " . $TableName2;
@@ -111,7 +111,7 @@
 
                                             if (mysqli_stmt_num_rows($stmt1) > 0) {
                                                 echo "<select class='form-control' name='reg_school'>"
-                                                . "<option value='0'>Select your school</option>'";
+                                                . "<option value='0'>Selecteer je school</option>'";
                                                 while (mysqli_stmt_fetch($stmt1)) {
                                                     echo '<option value="' . $sId . '">' . $sNaam . '</option>';
                                                 }
