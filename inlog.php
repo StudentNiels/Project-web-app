@@ -57,7 +57,7 @@
                         if (isset($_GET['reg'])) {
                             echo 'Registratie succesvol';
                         } elseif (isset($_GET['log'])) {
-                            echo 'Log in voordat je verder gaat!';
+                            echo '<div class="text-center col-6 mx-auto">Log in voordat je verder gaat!</div>';
                         }
                         if (isset($_POST['login_submit'])) {
                             // checks
