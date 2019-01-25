@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="styletest.css" rel="stylesheet">
@@ -30,4 +31,3 @@
         </div>
     </body>
 </html>
-
