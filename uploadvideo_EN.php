@@ -34,7 +34,7 @@ include ('sidebar_EN.php');
                             </select></p>
                         <p>Enter the title: <input type="text" name="Titel_entered"/></p>
                         <p>Select the language in which you upload: <input type="radio" name="taal" value="(NL)"> Nederlands
-                        <input type="radio" name="taal" value="(EN)"> English</p>
+                        <input type="radio" name="taal" value="(EN)" checked> English</p>
                         <input type="file" name="file" accept=".mp4"/>
                         <p><input type="submit" value="Upload" name="but_upload"></p>
                         </form>';

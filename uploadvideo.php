@@ -32,7 +32,7 @@ include ('sidebar.php');
                                 <option value="Databases">Databases</option>
                             </select></p>
                         <p>Enter de titel: <input type="text" name="Titel_entered"/></p>
-                        <p>Kies de taal waarin je wilt uploaden: <input type="radio" name="taal" value="(NL)"> Nederlands
+                        <p>Kies de taal waarin je wilt uploaden: <input type="radio" name="taal" value="(NL)" checked> Nederlands
                         <input type="radio" name="taal" value="(EN)"> Engels</p>
                         <input type="file" name="file" accept=".mp4"/>
                         <p><input type="submit" value="Upload" name="but_upload"></p>
