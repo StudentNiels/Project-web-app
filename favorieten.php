@@ -41,7 +41,7 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-                                      echo '<br><br><h3> Klik op de homepagina onder een video op \'favoeriet\' om een video toe te voegen aan favorieten</h3>';
+                                      echo '<br><br><h3> Klik op de homepagina op \'favoeriet\' om een vak toe te voegen aan favorieten</h3>';
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
@@ -74,10 +74,10 @@
                                                     }
                                                     mysqli_stmt_close($stmt);
                                                 } else {
-                                                    echo "execution failed";
+                                                    echo "Er ging iets fout";
                                                 }
                                             } else {
-                                                echo "Could not prepare the statement";
+                                                echo "Er ging iets fout";
                                             }
                                         }
                                     }
