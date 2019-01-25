@@ -19,7 +19,9 @@
         <?php
         include('conn.php');
         include('sidebar.php');
-        echo"<div id='mijnflix'><h1>MijnFlix</h1>";
+        echo"<div id='mijnflix'><div class='vakHeader'>
+                                                   <h1 class='vakTitel'> MijnFlix </h1></a>
+                                                </div>";
         $query = "SELECT Email, SchoolNaam, AbonnementID, Wachtwoord, DocentPerms FROM user, school  WHERE user.userId = " . $_SESSION['userId'] . " AND user.SchoolID = school.SchoolID;";
 
         if ($stmt = mysqli_prepare($conn, $query)) {
@@ -45,8 +47,7 @@
                     echo "<tr><th>Privileges</th></tr>";
                     echo"<td><p>Leraar Privileges toegekend </p></td></tr>";
                 }
-                echo "</table>";
-                echo "</div>";
+
 
                 if ($DocentPerms === 1) {
                     echo "<p><a href=uploadvideo.php>Upload een video</a></p>";
@@ -54,6 +55,8 @@
                 } else {
                     echo"Indien u een leraar bent en u graag een video wilt uploaden contacteer dan de administratie via admin@email.com</div>";
                 }
+                echo "</table>";
+                echo "</div>";
                 $conn = mysqli_connect("localhost", "root", "");
 
                 mysqli_stmt_close($stmt);
