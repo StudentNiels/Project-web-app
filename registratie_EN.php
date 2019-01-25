@@ -130,6 +130,7 @@
                                 </div>
                                 <p>
                                     <a href='inlog_EN.php'> Already have an account? Click here </a>
+                                    <a href='registratie.php'> Ben je Nederlands? klik hier </a>
                                 </p>
                             </form>
                         </div>
