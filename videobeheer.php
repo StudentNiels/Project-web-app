@@ -39,7 +39,7 @@
                                     mysqli_stmt_bind_result($stmt,$videoid, $locatie, $titel);
                                     mysqli_stmt_store_result($stmt);
                                     if (mysqli_stmt_num_rows($stmt) == 0) {
-                                        echo "<p>You have no uploaded video's</p>";
+                                        echo "<p>E heeft geen video's geüpload.</p>";
                                     } else {
                                         while (mysqli_stmt_fetch($stmt)) {
                                             echo "<div class='videobox'>
