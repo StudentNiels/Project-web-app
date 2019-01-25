@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="css/bootstrap.min.css" rel="stylesheet">
-
-
+        <link href="css/sideBar.css" rel="stylesheet">
+        <link href="css/videoshow.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -31,7 +31,7 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-lg-12 mx-auto">
-                                        <form class="form-inline" method="POST" action="searchpage.php">
+                                        <form class="form-inline" method="POST" action="search.php">
                                             <i class="fas fa-search" aria-hidden="true"></i>
                                             <p><br>
                                                 <input class="form-control form-control-sm ml-3 w-100" type="text" name="searchstr" placeholder="Search"  aria-label="Search">

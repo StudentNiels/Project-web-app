@@ -9,6 +9,7 @@ include('logcheck.php');
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/sideBar.css" rel="stylesheet">
+        <link href="css/videoshow.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
