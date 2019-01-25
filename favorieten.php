@@ -41,7 +41,7 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-                                      echo '<br><br><h3> Klik op de homepagina op \'favoeriet\' om een vak toe te voegen aan favorieten</h3>';
+                                      echo '<br><br><h3> Klik op de homepagina op \'favoriet\' om een vak toe te voegen aan favorieten</h3>';
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
