@@ -44,20 +44,20 @@
                                 if (empty(trim($_POST['reg_password']))) {
                                     $password_err = "Fill in a password.";
                                 } elseif (strlen(trim($_POST["reg_password"])) < 6) {
-                                    $password_err = "Password must have atleast 6 characters.";
+                                    $password_err = "Wachtwoord moet 6 characters lang zijn.";
                                 } else {
                                     $password = trim($_POST['reg_password']);
                                 }
                                 if (empty(trim($_POST['reg_confirm_password']))) {
-                                    $password_confirm_err = "Fill in both passwords";
+                                    $password_confirm_err = "Vul beide wachtwoorden in";
                                 } else {
                                     $password_confirm = trim($_POST['reg_confirm_password']);
                                     if (empty($password_err) && ($password != $password_confirm)) {
-                                        $password_err = "Passwords don't match";
+                                        $password_err = "Wachtwoorden zijn niet hetzelfde";
                                     }
                                 }
                                 if ($_POST['reg_school'] == 0) {
-                                    $school_err = "Please select a school.";
+                                    $school_err = "Selecteer een schoool.";
                                 } else {
                                     $school = trim($_POST['reg_school']);
                                 }
@@ -73,11 +73,11 @@
                                             $_SESSION['temp_betaling'] = $email;
                                             header('location: betaling.php');
                                         } else {
-                                            echo "Something went wrong";
+                                            echo "Er ging iets mis";
                                         }
                                     }
                                 } else {
-                                    $form_err = "Something went wrong";
+                                    $form_err = "Er ging iets mis";
                                 }
                             }
                             ?>
@@ -89,12 +89,12 @@
                                     <span class="help-block"><?php echo $email_err; ?></span>
                                 </div>
                                 <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                    <label>Password</label>
+                                    <label>Wachtwoord</label>
                                     <input type="password" name="reg_password" class="form-control">
                                     <span class="help-block"><?php echo $password_err; ?></span>
                                 </div>
                                 <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                                    <label>Confirm Password</label>
+                                    <label>Bevestig wachtwoord</label>
                                     <input type="password" name="reg_confirm_password" class="form-control">
                                     <span class="help-block"><?php echo $password_confirm_err; ?></span>
                                 </div>
@@ -117,11 +117,11 @@
                                                 }
                                                 echo '</select>';
                                             } else {
-                                                echo "<p>There are no schools registered!</p>";
+                                                echo "<p>Er zijn nog geen scholen geregistreerd!</p>";
                                             }
                                         }
                                     } else {
-                                        echo 'Query ging fout!';
+                                        echo 'Er ging iets mis';
                                     }
                                     ?>
                                     <span class="help-block"><?php echo $school_err; ?></span>
