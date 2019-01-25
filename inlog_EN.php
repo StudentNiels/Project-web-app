@@ -90,7 +90,7 @@
                                                     echo '<br>';
                                                     header("Location: index.php");
                                                 } else {
-                                                    print_r($postpw);
+                                                    echo 'Login info incorrect';
                                                 }
                                             } else {
                                                 echo 'Login info incorrect';
