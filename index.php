@@ -61,11 +61,9 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $shortTitle . "</h4>
-<<<<<<< HEAD
-                                                                    <p class='username'>" . $user . "</p>
                                                                     <a href='addfav.php?id=" . $videoId . "&cat=add'>Favoriet</a>
-=======
->>>>>>> 163f84137c348d17434289225389a011d8de8c89
+
+
                                                                 </div>
                                                                 </div>";
                                                         }
