@@ -2,7 +2,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link href="css/style.css" rel="stylesheet">  
+        <link href="css/style.css" rel="stylesheet">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -114,15 +114,15 @@
                 if (mysqli_stmt_fetch($stmt)) {
                     ?>
                     <div id = 'mijnflix' class = "center">
-                        <h2>Account information</h2>
-                        <h3>Change email</h3>
+                        <h2>Account informatie</h2>
+                        <h3>Verander email</h3>
                         <form action = "<?PHP echo htmlentities($_SERVER['PHP_SELF']); ?>" method = "post" enctype = "multipart/form-data">
                             <div class = "form-group">
-                                <label>Change email</label>
+                                <label>Verander email</label>
                                 <input type = "text" name = "email" class = "form-control" value = "<?php echo $email; ?>">
                             </div>
                             <div class = "form-group">
-                                <label>Confirm New Email</label>
+                                <label>Verander nieuwe email</label>
                                 <input type = "text" name = "email_confirm" class = "form-control">
                                 <span class = "help-block"> <?php echo $email_err ?></span>
                             </div>
@@ -140,20 +140,20 @@
         }
         ?>
         <div id = 'mijnflix' class = "center">
-            <h3>Change password</h3>
+            <h3>Verander wachtwoord</h3>
             <form action = "<?PHP echo htmlentities($_SERVER['PHP_SELF']); ?>" method = "post" enctype = "multipart/form-data">
                 <div class="form-group">
-                    <label>Current Password</label>
+                    <label>Huidige wachtwoord</label>
                     <input type="password" name="password" class="form-control" value="">
                     <span class="help-block"><?php echo $password_err; ?></span>
                 </div>
                 <div class="form-group">
-                    <label>New Password</label>
+                    <label>Nieuw wachtwoord</label>
                     <input type="password" name="new_password" class="form-control" value="">
                     <span class="help-block"><?php echo $confirm_password_err; ?></span>
                 </div>
                 <div class="form-group">
-                    <label>Repeat Password</label>
+                    <label>Herhaal wachtwoord</label>
                     <input type="password" name="repeat_password" class="form-control" value="">
                     <span class="help-block"><?php echo $confirm_password_err; ?></span>
                 </div>
