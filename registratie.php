@@ -131,7 +131,9 @@
                                     <input type="submit" class="btn btn-primary" value="Submit">
                                 </div>
                                 <p>
-                                    <a href='inlog.php'> Heb je al een account? klik hier </a>
+                                    <a href='inlog.php'> Heb je al een account? klik hier </a><br>
+                                    <a href='registratie_EN.php'> Are you english? click here </a>
+
                                 </p>
                             </form>
                         </div>
