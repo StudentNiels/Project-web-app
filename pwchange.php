@@ -38,13 +38,13 @@
                                         $email_result = "Email succesvol veranderd.";
                                         $_SESSION['username'] = $email;
                                     } else {
-                                        $email_result = "Something went wrong";
+                                        $email_result = "Er ging iets mis";
                                     } mysqli_stmt_close($stmt);
                                 }
                             } else {
                                 $email_result = "Dit email-adres is al in gebruik.";
                             }
-                        } else $email_result = "Something went wrong.";
+                        } else $email_result = "Er ging iets mis.";
                     }
                 }
             } else {
@@ -70,19 +70,19 @@
                             if (password_verify($password, $hashed_password)) {
 
                                 if (empty(trim($_POST["new_password"]))) {
-                                    $password_err = "Please enter a new password.";
+                                    $password_err = "Voer een nieuw wachtwoord in.";
                                 } elseif (strlen(trim($_POST["new_password"])) < 6) {
-                                    $password_err = "Password must have atleast 6 characters.";
+                                    $password_err = "Het wachtwoord moet minstens 6 karakters bevatten.";
                                 } else {
                                     $new_password = trim($_POST["new_password"]);
                                 }
 
                                 if (empty(trim($_POST["repeat_password"]))) {
-                                    $confirm_password_err = "Please confirm password.";
+                                    $confirm_password_err = "Bevestig het wachtwoord.";
                                 } else {
                                     $confirm_password = trim($_POST["repeat_password"]);
                                     if (empty($password_err) && ($new_password != $confirm_password)) {
-                                        $confirm_password_err = "Password did not match.";
+                                        $confirm_password_err = "Watchwoorden kwamen niet overeen.";
                                     }
                                 }
                                 $sql = "UPDATE user SET Wachtwoord = ? WHERE userID =" . $userId;
@@ -90,19 +90,19 @@
                                     mysqli_stmt_bind_param($stmt, "s", $param_password);
                                     $param_password = password_hash($new_password, PASSWORD_DEFAULT);
                                     if (mysqli_stmt_execute($stmt)) {
-                                        $result = "Password changed succesfully!";
+                                        $result = "Wachtwoord gewijzigd!";
                                     } else {
-                                        $result = "Something went wrong";
+                                        $result = "Er ging iets mis";
                                     }
                                 } else {
-                                    $result = "Something went wrong";
+                                    $result = "Er ging iets mis";
                                 }
                             } else {
-                                $password_err = "Wrong password";
+                                $password_err = "Verkeerd wachtwoord";
                             }
                         }
                     } else {
-                        $result = "Something went wrong";
+                        $result = "Er ging iets mis";
                     }
                 }
             }
@@ -144,7 +144,7 @@
             <h3>Verander wachtwoord</h3>
             <form action = "<?PHP echo htmlentities($_SERVER['PHP_SELF']); ?>" method = "post" enctype = "multipart/form-data">
                 <div class="form-group">
-                    <label>Huidige wachtwoord</label>
+                    <label>Huidig wachtwoord</label>
                     <input type="password" name="password" class="form-control" value="">
                     <span class="help-block"><?php echo $password_err; ?></span>
                 </div>
