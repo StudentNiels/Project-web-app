@@ -29,12 +29,12 @@
                         <div class="vak">
                             <?php
                             $SQLstring = "
-                            SELECT Vak
+                            SELECT video.Vak
                             FROM video
                             INNER JOIN favorieten
-                            ON favorieten.videoID = video.videoID
+                            ON favorieten.vak = video.vak
                             WHERE video.userID = " . $_SESSION['userId'] . "
-                            GROUP BY Vak";
+                            GROUP BY video.Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
                                     mysqli_stmt_bind_result($statement, $vak);

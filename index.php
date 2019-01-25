@@ -40,12 +40,13 @@
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
                                                     <a href='videolijst.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
+                                                    <a href='addfav.php?vak=" . $vak . "&cat=add'><h5>Favoriet</h5></a>
                                                 </div>";
                                             echo $vaktitel;
-                                            $query = "SELECT Locatie, Titel, Email, VideoID FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
+                                            $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
-                                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user, $videoId);
+                                                    mysqli_stmt_bind_result($stmt, $locatie, $titel, $user);
 
                                                     mysqli_stmt_store_result($stmt);
                                                     if (mysqli_stmt_num_rows($stmt) == 0) {
@@ -61,10 +62,7 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $shortTitle . "</h4>
-                                                                    <a href='addfav.php?id=" . $videoId . "&cat=add'>Favoriet</a>
-
-
-                                                                </div>
+                                                                    </div>
                                                                 </div>";
                                                         }
                                                     }

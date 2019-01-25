@@ -1,14 +1,14 @@
 <?php
 include('conn.php');
 session_start();
-$videoid = $_GET['id'];
 $cat = $_GET['cat'];
+$vak = $_GET['vak'];
 $tn = 'favorieten';
 
 if($cat == 'add'){
-  $sql = "INSERT INTO " . $tn . " (userID, VideoID) VALUES (?, ?)";
+  $sql = "INSERT INTO " . $tn . " (userID, Vak) VALUES (?, ?)";
   if ($stmt = mysqli_prepare($conn, $sql)) {
-      mysqli_stmt_bind_param($stmt, "ss", $_SESSION['userId'], $videoid);
+      mysqli_stmt_bind_param($stmt, "is", $_SESSION['userId'], $vak);
       if (mysqli_stmt_execute($stmt)) {
           header('location: index.php');
       }else{
