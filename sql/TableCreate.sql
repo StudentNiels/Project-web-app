@@ -89,5 +89,5 @@ CREATE TABLE `VideoLijst` (
 
 CREATE TABLE `Favorieten` (
 	userID INT,
-	VideoID INT
+	Vak VARCHAR(50)
 );
