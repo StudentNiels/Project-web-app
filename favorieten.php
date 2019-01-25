@@ -33,7 +33,7 @@
                             FROM video
                             INNER JOIN favorieten
                             ON favorieten.vak = video.vak
-                            WHERE video.userID = " . $_SESSION['userId'] . "
+                            WHERE favorieten.userID = " . $_SESSION['userId'] . "
                             GROUP BY video.Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
@@ -49,7 +49,7 @@
                                                     <a class='vakTitel' href='addfav.php?vak=" . $vak . "&cat=del'><h7>verwijder favoriet</h7></a>
                                                 </div>";
                                             echo $vaktitel;
-                                            $query = "SELECT Locatie, Titel, Email, VideoID FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
+                                            $query = "SELECT Locatie, Titel, Email, VideoID FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' GROUP BY vak ORDER BY VideoID DESC";
                                             if ($stmt = mysqli_prepare($conn, $query)) {
                                                 if (mysqli_stmt_execute($stmt) === TRUE) {
                                                     mysqli_stmt_bind_result($stmt, $locatie, $titel, $user, $videoId);

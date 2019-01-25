@@ -33,7 +33,7 @@
                             FROM video
                             INNER JOIN favorieten
                             ON favorieten.vak = video.vak
-                            WHERE video.userID = " . $_SESSION['userId'] . "
+                            WHERE favorieten.userID = " . $_SESSION['userId'] . "
                             GROUP BY Vak";
                             if ($statement = mysqli_prepare($conn, $SQLstring)) {
                                 if (mysqli_stmt_execute($statement) === TRUE) {
