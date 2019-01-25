@@ -76,7 +76,7 @@ include ('sidebar.php');
                                                         . mysqli_error($conn)
                                                         . "</p>";
                                                     } else {
-                                                        echo "<h1>Upload successfully.<h1>";
+                                                        echo "<h1>Upload is gelukt.<h1>";
                                                     }
                                                 } else {
                                                     echo "could not prepare statment";
