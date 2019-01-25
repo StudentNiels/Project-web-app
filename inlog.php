@@ -27,12 +27,12 @@
 
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='email' name='login_username' placeholder="Enter your email">
+                                        <input class="form-control" type='email' name='login_username' placeholder="Voer je email in">
                                     </p>
                                 </div>
                                 <div class="form-group">
                                     <p>
-                                        <input class="form-control" type='password' name='login_password' placeholder="Enter your password">
+                                        <input class="form-control" type='password' name='login_password' placeholder="Voer je wachtwoord in">
                                     </p>
                                 </div>
                                 <div class="form-group">
@@ -41,7 +41,9 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie.php'> Heb je nog geen account? Klik dan hier! </a>
+                                    <a href='registratie.php'> Heb je nog geen account? Klik dan hier! </a><br>
+                                    <a href='inlog_en.php'> Are you english? click here </a>
+
                                 </p>
                             </form>
 

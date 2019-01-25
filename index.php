@@ -40,7 +40,7 @@
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
                                                     <a href='videolijst.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
-                                                    <a href='addfav.php?vak=" . $vak . "&cat=add'><h5>Favoriet</h5></a>
+                                                    <a class='vakTitel' href='addfav.php?vak=" . $vak . "&cat=add'><h5>Favoriet</h5></a>
                                                 </div>";
                                             echo $vaktitel;
                                             $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";

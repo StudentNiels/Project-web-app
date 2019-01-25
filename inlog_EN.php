@@ -41,7 +41,8 @@
                                     </p>
                                 </div>
                                 <p>
-                                    <a href='registratie_EN.php'> Don't have an account? Click here to register! </a>
+                                    <a href='registratie_EN.php'> Don't have an account? Click here to register! </a><br>
+                                    <a href='inlog.php'> Ben je nederlands? klik hier </a>
                                 </p>
                             </form>
 
