@@ -42,14 +42,14 @@
                                 </div>
                                 <p>
                                     <a href='registratie_EN.php'> Don't have an account? Click here to register! </a><br>
-                                    <a href='inlog.php'> Ben je nederlands? klik hier </a>
+                                    <a href='inlog.php'> Ben je Nederlands? klik hier </a>
                                 </p>
                             </form>
 
                             <?php
                             session_start();
                             if (isset($_SESSION['loggedin'])) {
-                                header('Location: index.php');
+                                header('Location: index_EN.php');
                             }
                             include('conn.php');
                             if (isset($_GET['reg'])) {
