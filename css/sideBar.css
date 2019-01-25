@@ -141,7 +141,8 @@
 }
 @media (max-width: 768px){
     #logo{
-        margin: 10px;   
+        padding-top: 10px;
+        margin: 0px;   
         background-color: #333;
     }
     .sicons{

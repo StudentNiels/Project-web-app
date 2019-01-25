@@ -31,17 +31,20 @@ a {
 }
 
 
-@media (max-width: 575px){
-#mijnflix
-{
-    padding-left: 50px;
+@media (max-width: 768px){
+    #mijnflix
+    {
+        padding-left: 50px;
+    }
+    .vak{
+        padding-left: 40px;
+    }
 }
-}
-@media (min-width: 575px){
-#mijnflix
-{
-    padding-left: 20%;
-}
+@media (min-width: 768px){
+    #mijnflix
+    {
+        padding-left: 17%;
+    }
 }
 .center{
     padding-top: 1%;
