@@ -99,7 +99,7 @@ include ('sidebar_EN.php');
                 echo "<p>You don't have the rights to use this function!</p>";
             } 
         } else {
-            header('location: inlog.php');
+            header('location: inlog_EN.php');
         }
         ?>
     </body>
