@@ -23,8 +23,9 @@ include('logcheck.php');
                 <img class="img-fluid" id="logo" src="images/logoB-01.svg">
                 <div class="list-group border-0 card text-center text-md-left">
 
-                    <form method="post" action="search.php">
-                        <span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder="&#x1F50E"></p></span>
+                    <form class="form-inline list-group-item d-inline-block collapsed">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                        <input class="form-control- form-control-sm ml-3 w-50 d-sm-none d-md-inline"  type="text" aria-label="Search">
                     </form>
                     <a href="index.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MijnFlix</span></a>
