@@ -22,12 +22,13 @@ include('logcheck.php');
             <div class="col-md-2 col-sm-2 col-lg-2 float-left col-2 pl-0 pr-0 collapse width show logobg" id="sidebar">
                 <img class="img-fluid" id="logo" src="images/logoB-01.svg">
                 <div class="list-group border-0 card text-center text-md-left">
+                    <form method="post" action="search.php">
+                        <span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder="&#x1F50E"></p></span>
+                    </form>
                     <a href="index_EN.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-home"></i> <span class="d-none d-md-inline">Home</span></a>
                     <a href="mijnFlix_EN.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-film"></i> <span class="d-none d-md-inline">MyFlix</span></a>
+                    <a href="favorieten.php" class="list-group-item d-inline-block collapsed uwu"><i class="fa fa-asterisk"></i> <span class="d-none d-md-inline">Favorites</span></a>
                     <a href="loguit.php" class="list-group-item d-inline-block collapsed uwu" data-parent="#sidebar"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Log Out</span></a>
-                    <form method="post" action="search.php">
-                        <i class="offset-sm-0 fas fa-search uwu"></i><span class="d-none d-md-inline"><p class="list-group-item d-inline-block collapsed"><input class="form-control" type="text" name="searchstr" placeholder=""></p></span>
-                    </form>
                     <!--<div class="list-group border-0 card text-center text-md-left">-->
                     <div class="row socialbar d-sm-n2one d-md-block list-group-item d-inline-block collapsed">
                         <div class="col-sm-11 col-md-11 col-lg-11 offset-sm-2">
