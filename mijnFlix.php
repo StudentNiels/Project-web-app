@@ -31,11 +31,11 @@
             mysqli_stmt_store_result($stmt);
             mysqli_stmt_fetch($stmt);
             if (mysqli_stmt_num_rows($stmt) == 0) {
-                echo "Nothing found";
+                echo "Niks gevonden";
             } else {
                 echo "<div class='container-fluid'>";
                 echo "<table>";
-                echo "<h3>Your profile</h3>";
+                echo "<h3>Jouw profiel</h3>";
                 echo "<tr><th>Username/Email:</th></tr>";
                 echo"<tr><td><p>" . $Email . "</p></td></tr>";
 
