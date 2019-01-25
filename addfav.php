@@ -18,9 +18,9 @@ if($cat == 'add'){
       echo 'er ging iets fout';
     }
 }elseif($cat=='del'){
-  $sql = "DELETE FROM " . $tn . " WHERE videoID = ? AND userID = ?";
+  $sql = "DELETE FROM " . $tn . " WHERE Vak = ? AND userID = ?";
   if ($stmt = mysqli_prepare($conn, $sql)) {
-      mysqli_stmt_bind_param($stmt, "ss", $videoid, $_SESSION['userId'] );
+      mysqli_stmt_bind_param($stmt, "ss", $vak, $_SESSION['userId'] );
       if (mysqli_stmt_execute($stmt)) {
           header('location: favorieten.php');
       }else{
@@ -30,5 +30,7 @@ if($cat == 'add'){
       echo 'er ging iets fout';
     }
 }
+
+ ?>
 
  ?>

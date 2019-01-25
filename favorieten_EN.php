@@ -14,7 +14,7 @@
         <!--<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet">
-		<title>I Learn Flix</title>
+        <title>I Learn Flix</title>
     </head>
 
     <body class="bcolor">
@@ -24,7 +24,7 @@
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-10 col-sm-11 col-xs-11 float-left col-1 pl-0 pr-0">
+                <div class="col-md-10 col-sm-11 col-xs-11 float-left pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
                             <?php
@@ -41,12 +41,12 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-                                      echo '<br><br><h3> Press the Favorite button on a course to add it to your favorites!</h3>';
+                                        echo '<br><br><h3> Press the Favorite button on a course to add it to your favorites!</h3>';
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
                                                     <a href='videolijst_EN.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
-                                                        <a class='vakTitel' href='addfav_EN.php?vak=" . $vak . "&cat=del'><h5>Remove From Favorites</h5></a>
+                                                        <a class='vakTitel' href='addfav_EN.php?vak=" . $vak . "&cat=del'><h7>Remove Favorites</h7></a>
                                                 </div>";
                                             echo $vaktitel;
                                             $query = "SELECT Locatie, Titel, Email, VideoID FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";
@@ -56,7 +56,7 @@
 
                                                     mysqli_stmt_store_result($stmt);
                                                     if (mysqli_stmt_num_rows($stmt) == 0) {
-
+                                                        
                                                     } else {
                                                         while (mysqli_stmt_fetch($stmt)) {
                                                             $shortTitle = mb_strimwidth($titel, 0, 30, '...');
@@ -68,7 +68,7 @@
                                                                 </div>
                                                                 <div class='videoInfo'>
                                                                     <h4 class='titel'>" . $shortTitle . "</h4>
-                                                                    <a href='addfav_EN.php?id=" . $videoId . "&cat=del' class='vakTitel'>Remove</a>
+                                                                    
                                                                 </div>
                                                                 </div>";
                                                         }

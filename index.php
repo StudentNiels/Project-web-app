@@ -24,7 +24,7 @@
         ?>
         <div class="container-fluid">
             <div class="row d-flex d-md-block flex-nowrap wrapper">
-                <div class="col-md-10 col-sm-11 col-xs-11 float-left col-1 pl-0 pr-0">
+                <div class="col-md-10 col-sm-11 col-xs-11 float-left pl-0 pr-0">
                     <div class="videos">
                         <div class="vak">
                             <?php
@@ -35,12 +35,12 @@
                                     mysqli_stmt_store_result($statement);
                                     $vaktitel = ucfirst($vak);
                                     if (mysqli_stmt_num_rows($statement) == 0) {
-
+                                           echo "<h1>Er zijn nog geen video's geupload!</h1>";
                                     } else {
                                         while (mysqli_stmt_fetch($statement)) {
                                             echo "<div class='vakHeader'>
                                                     <a href='videolijst.php?vak=" . $vak . "'><h2 class='vakTitel'>" . $vak . "</h2></a>
-                                                    <a class='vakTitel' href='addfav.php?vak=" . $vak . "&cat=add'><h5>Favoriet</h5></a>
+                                                    <a class='vakTitel' href='addfav.php?vak=" . $vak . "&cat=add'><h7>Favoriet</h7></a>
                                                 </div>";
                                             echo $vaktitel;
                                             $query = "SELECT Locatie, Titel, Email FROM video JOIN user ON video.userID = user.userID WHERE vak = '{$vak}' ORDER BY VideoID DESC LIMIT 4";

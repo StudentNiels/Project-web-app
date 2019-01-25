@@ -18,7 +18,7 @@ if($cat == 'add'){
       echo 'Something went wrong';
     }
 }elseif($cat=='del'){
-  $sql = "DELETE FROM " . $tn . " WHERE vak = ? AND userID = ?";
+  $sql = "DELETE FROM " . $tn . " WHERE Vak = ? AND userID = ?";
   if ($stmt = mysqli_prepare($conn, $sql)) {
       mysqli_stmt_bind_param($stmt, "ss", $vak, $_SESSION['userId'] );
       if (mysqli_stmt_execute($stmt)) {
@@ -27,7 +27,7 @@ if($cat == 'add'){
           header('location: favorieten_EN.php');
       }
     }else{
-      echo 'Something went wrong';
+      echo 'er ging iets fout';
     }
 }
 
